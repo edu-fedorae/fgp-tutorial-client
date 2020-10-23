@@ -1,6 +1,6 @@
 {
-  "name": "pwa",
-  "short_name": "pwa",
+  "name": "FGP Tutorial",
+  "short_name": "FGP",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",
