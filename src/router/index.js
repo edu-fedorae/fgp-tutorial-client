@@ -35,7 +35,36 @@ const routes = [
     // this generates a separate chunk (dashboard.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "dashboard" */ "../views/Dashboard/index.vue")
+      import(/* webpackChunkName: "dashboard" */ "../views/Dashboard/index.vue"),
+    children: [
+      {
+        path: "/dashboard/profile",
+        name: "Dashboard-Profile",
+        // route level code-splitting
+        // this generates a separate chunk (profile.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+          import(/* webpackChunkName: "profile" */ "../views/Dashboard/profile.vue")
+      },
+      {
+        path: "/dashboard/settings",
+        name: "Dashboard-Settings",
+        // route level code-splitting
+        // this generates a separate chunk (settings.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+          import(/* webpackChunkName: "settings" */ "../views/Dashboard/settings.vue")
+      },
+      {
+        path: "/dashboard/tutorials",
+        name: "Dashboard-Tutorials",
+        // route level code-splitting
+        // this generates a separate chunk (tutorials.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+          import(/* webpackChunkName: "tutorials" */ "../views/Dashboard/tutorials.vue")
+      },
+    ]
   }
 ];
 

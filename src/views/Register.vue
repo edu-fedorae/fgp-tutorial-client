@@ -40,7 +40,7 @@
                           <v-text-field
                             label="Last Name"
                             name="last-name"
-                            prepend-icon="mdi-account"
+                            prepend-icon="mdi-account-outline"
                             type="text"
                           ></v-text-field>
                         </v-col>
@@ -70,13 +70,14 @@
                       ></v-text-field>
 
                       <v-autocomplete
-                        v-model="value"
-                        :items="items"
+                        v-model="items.value"
+                        :items="items.type"
                         dense
                         filled
+                        prepend-icon="mdi-accounts"
                         label="Tutor or Student"
                       ></v-autocomplete>
-                      
+
                     </v-form>
                   </v-card-text>
                   <v-card-actions>
@@ -97,9 +98,10 @@
 export default {
   data () {
       return {
-        items: ['foo', 'bar', 'fizz', 'buzz'],
-        values: ['foo', 'bar'],
-        value: null,
+        items: [
+          { type: 'Student', value: '0' },
+          { type: 'Tutor', value: '1' }
+        ],
       }
     },
 }
