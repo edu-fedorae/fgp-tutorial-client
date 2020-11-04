@@ -4,106 +4,155 @@
       <v-row>
         <v-col sm="12" md="6" lg="6">
           <v-card
-            :loading="loading"
-            class="mx-auto my-12"
-            max-width="374"
+            class="mx-auto"
+            max-width="344"
           >
-            <template slot="progress">
-              <v-progress-linear
-                color="deep-purple"
-                height="10"
-                indeterminate
-              ></v-progress-linear>
-            </template>
-
             <v-img
-              height="250"
-              src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              height="200px"
             ></v-img>
 
-            <v-card-title>Cafe Badilico</v-card-title>
+            <v-card-title>
+              Top western road trips
+            </v-card-title>
 
-            <v-card-text>
-              <v-row
-                align="center"
-                class="mx-0"
-              >
-                <v-rating
-                  :value="4.5"
-                  color="amber"
-                  dense
-                  half-increments
-                  readonly
-                  size="14"
-                ></v-rating>
-
-                <div class="grey--text ml-4">
-                  4.5 (413)
-                </div>
-              </v-row>
-
-              <div class="my-4 subtitle-1">
-                $ • Italian, Cafe
-              </div>
-
-              <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
-            </v-card-text>
-
-            <v-divider class="mx-4"></v-divider>
-
-            <v-card-title>Tonight's availability</v-card-title>
-
-            <v-card-text>
-              <v-chip-group
-                v-model="selection"
-                active-class="deep-purple accent-4 white--text"
-                column
-              >
-                <v-chip>5:30PM</v-chip>
-
-                <v-chip>7:30PM</v-chip>
-
-                <v-chip>8:00PM</v-chip>
-
-                <v-chip>9:00PM</v-chip>
-              </v-chip-group>
-            </v-card-text>
+            <v-card-subtitle>
+              1,000 miles of wonder
+            </v-card-subtitle>
 
             <v-card-actions>
               <v-btn
-                color="deep-purple lighten-2"
+                color="orange lighten-2"
                 text
-                @click="reserve"
               >
-                Reserve
+                Explore
+              </v-btn>
+
+              <v-spacer></v-spacer>
+
+              <v-btn
+                icon
+                @click="show = !show"
+              >
+                <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
               </v-btn>
             </v-card-actions>
+
+            <v-expand-transition>
+              <div v-show="show">
+                <v-divider></v-divider>
+
+                <v-card-text>
+                  I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+                </v-card-text>
+              </div>
+            </v-expand-transition>
           </v-card>
         </v-col>
 
         <v-col sm="12" md="6" lg="6">
-          <v-card>
-            <v-card-body>
-              <h1>Card 2</h1>
-            </v-card-body>
+          <v-card
+            class="mx-auto"
+            max-width="344"
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="overline mb-4">
+                  OVERLINE
+                </div>
+                <v-list-item-title class="headline mb-1">
+                  Headline 5
+                </v-list-item-title>
+                <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+              </v-list-item-content>
+
+              <v-list-item-avatar
+                tile
+                size="80"
+                color="grey"
+              ></v-list-item-avatar>
+            </v-list-item>
+
+            <v-card-actions>
+              <v-btn
+                outlined
+                rounded
+                text
+              >
+                Button
+              </v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
 
       <v-row>
         <v-col sm="12" md="6" lg="6">
-          <v-card>
-            <v-card-body>
-              <h1>Card 3</h1>
-            </v-card-body>
+          <v-card
+            class="mx-auto"
+            max-width="344"
+          >
+            <v-card-text>
+              <div>Word of the Day</div>
+              <p class="display-1 text--primary">
+                be•nev•o•lent
+              </p>
+              <p>adjective</p>
+              <div class="text--primary">
+                well meaning and kindly.<br>
+                "a benevolent smile"
+              </div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn
+                text
+                color="deep-purple accent-4"
+              >
+                Learn More
+              </v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
 
         <v-col sm="12" md="6" lg="6">
-          <v-card>
-            <v-card-body>
-              <h1>Card 4</h1>
-            </v-card-body>
+          <v-card
+            class="mx-auto"
+            max-width="400"
+          >
+            <v-img
+              class="white--text align-end"
+              height="200px"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+            >
+              <v-card-title>Top 10 Australian beaches</v-card-title>
+            </v-img>
+
+            <v-card-subtitle class="pb-0">
+              Number 10
+            </v-card-subtitle>
+
+            <v-card-text class="text--primary">
+              <div>Whitehaven Beach</div>
+
+              <div>Whitsunday Island, Whitsunday Islands</div>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-btn
+                color="orange"
+                text
+              >
+                Share
+              </v-btn>
+
+              <v-btn
+                color="orange"
+                text
+              >
+                Explore
+              </v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -116,16 +165,8 @@
 export default {
   data() {
     return {
-      loading: false,
-      selection: 1,
+      show: false,
     }
-  },
-  methods: {
-    reserve () {
-      this.loading = true
-
-      setTimeout(() => (this.loading = false), 2000)
-    },
   }
 };
 </script>
