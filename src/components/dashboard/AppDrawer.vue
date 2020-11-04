@@ -26,18 +26,15 @@
       <v-list-item
         v-for="item in items"
         :key="item.title"
+        :to="item.src"
         link
       >
         <v-list-item-icon>
-          <router-link :to="item.src">
             <v-icon>{{ item.icon }}</v-icon>
-          </router-link>
         </v-list-item-icon>
 
         <v-list-item-content>
-          <router-link :to="item.src">
-            <v-list-item-title :to="item.src">{{ item.title }}</v-list-item-title>
-          </router-link>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -61,7 +58,7 @@ export default {
           { title: 'Home', icon: 'mdi-view-dashboard', src: '/dashboard/home' },
           { title: 'Profile', icon: 'mdi-account', src: '/dashboard/profile' },
           { title: 'Tutorials', icon: 'mdi-bookmark', src: '/dashboard/tutorials' },
-          { title: 'Settings', icon: 'mdi-settings', src: '/dashboard/settings' },
+          { title: 'Settings', icon: 'mdi-cog', src: '/dashboard/settings' },
         ],
     }
   }

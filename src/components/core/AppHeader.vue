@@ -6,7 +6,7 @@
     >
       <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
-      <v-toolbar-title>Tutorion</v-toolbar-title>
+      <v-toolbar-title><v-btn :to="{ name: 'Home'}" text>Tutorion</v-btn></v-toolbar-title>
 
       <v-spacer></v-spacer>
 

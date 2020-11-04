@@ -5,7 +5,7 @@
         <v-col sm="12" md="6" lg="6">
           <v-card
             class="mx-auto"
-            max-width="344"
+            height="200px"
           >
             <v-img
               src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -53,7 +53,7 @@
         <v-col sm="12" md="6" lg="6">
           <v-card
             class="mx-auto"
-            max-width="344"
+            height="200px"
             outlined
           >
             <v-list-item three-line>
@@ -91,7 +91,7 @@
         <v-col sm="12" md="6" lg="6">
           <v-card
             class="mx-auto"
-            max-width="344"
+            height="200px"
           >
             <v-card-text>
               <div>Word of the Day</div>
@@ -118,7 +118,7 @@
         <v-col sm="12" md="6" lg="6">
           <v-card
             class="mx-auto"
-            max-width="400"
+            height="200px"
           >
             <v-img
               class="white--text align-end"

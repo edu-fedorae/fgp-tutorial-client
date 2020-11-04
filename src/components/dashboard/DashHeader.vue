@@ -8,9 +8,7 @@
         v-if="primaryDrawer.type !== 'permanent'"
         @click.stop="primaryDrawer.model = !primaryDrawer.model"
       ></v-app-bar-nav-icon>
-      <router-link :to="{ name: 'Home'}">
-        <v-toolbar-title>Tutorion</v-toolbar-title>
-      </router-link>
+        <v-toolbar-title><v-btn :to="{ name: 'Home'}" text>Tutorion</v-btn></v-toolbar-title>
     </v-app-bar>
   </div>
 </template>
