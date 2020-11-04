@@ -2,6 +2,7 @@
   <div>
     <v-app-bar
       color="#1E3D58"
+      dark
     >
       <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
@@ -9,11 +10,11 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn :to="{ name:'Home' }" text>
+      <v-btn :to="{ name:'Home' }" text outline>
         Sign In
       </v-btn>
 
-      <v-btn :to="{ name:'Register' }" text>
+      <v-btn :to="{ name:'Register' }" text outline>
         Sign Up
       </v-btn>
 

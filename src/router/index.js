@@ -38,6 +38,15 @@ const routes = [
       import(/* webpackChunkName: "dashboard" */ "../views/Dashboard/index.vue"),
     children: [
       {
+        path: "/dashboard/home",
+        name: "Dashboard-Home",
+        // route level code-splitting
+        // this generates a separate chunk (home.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+          import(/* webpackChunkName: "home" */ "../views/Dashboard/home.vue")
+      },
+      {
         path: "/dashboard/profile",
         name: "Dashboard-Profile",
         // route level code-splitting
