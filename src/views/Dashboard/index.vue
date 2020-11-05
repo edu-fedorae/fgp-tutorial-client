@@ -89,7 +89,7 @@ export default {
           icon: "mdi-bookmark",
           src: "/dashboard/tutorials"
         },
-        { title: "Settings", icon: "mdi-settings", src: "/dashboard/settings" }
+        { title: "Settings", icon: "mdi-cog", src: "/dashboard/settings" }
       ]
     };
   }
