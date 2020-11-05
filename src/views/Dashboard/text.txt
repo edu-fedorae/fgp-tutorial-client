@@ -1,7 +1,14 @@
 <template>
   <div class="profile">
-    <v-card class="overflow-hidden" color="purple lighten-1" dark>
-      <v-toolbar flat color="purple">
+    <v-card
+      class="overflow-hidden"
+      color="purple lighten-1"
+      dark
+    >
+      <v-toolbar
+        flat
+        color="purple"
+      >
         <v-icon>mdi-account</v-icon>
         <v-toolbar-title class="font-weight-light">
           User Profile
@@ -22,6 +29,7 @@
         </v-btn>
       </v-toolbar>
       <v-card-text>
+
         <v-row>
           <v-col>
             <v-text-field
@@ -59,15 +67,26 @@
           item-text="name"
           label="Tutor or Student"
         ></v-autocomplete>
+
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn :disabled="!isEditing" color="success" @click="save">
+        <v-btn
+          :disabled="!isEditing"
+          color="success"
+          @click="save"
+        >
           Save
         </v-btn>
       </v-card-actions>
-      <v-snackbar v-model="hasSaved" :timeout="2000" absolute bottom left>
+      <v-snackbar
+        v-model="hasSaved"
+        :timeout="2000"
+        absolute
+        bottom
+        left
+      >
         Your profile has been updated
       </v-snackbar>
     </v-card>
@@ -76,33 +95,34 @@
 
 <script>
 export default {
-  data() {
-    return {
-      hasSaved: false,
-      isEditing: null,
-      model: null,
-      items: [
-        { name: "Student", value: 0 },
-        { name: "Tutor", value: 1 }
-      ]
-    };
-  },
-  methods: {
-    customFilter(item, queryText) {
-      const textOne = item.name.toLowerCase();
-      const textTwo = item.abbr.toLowerCase();
-      const searchText = queryText.toLowerCase();
-
-      return (
-        textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
-      );
+    data () {
+      return {
+        hasSaved: false,
+        isEditing: null,
+        model: null,
+        items: [
+          { name: 'Student', value: '0' },
+          { name: 'Tutor', value: '1' }
+        ],
+      }
     },
-    save() {
-      this.isEditing = !this.isEditing;
-      this.hasSaved = true;
-    }
+
+    methods: {
+      customFilter (item, queryText, itemText) {
+        const textOne = item.name.toLowerCase()
+        const textTwo = item.abbr.toLowerCase()
+        const searchText = queryText.toLowerCase()
+
+        return textOne.indexOf(searchText) > -1 ||
+          textTwo.indexOf(searchText) > -1
+      },
+      save () {
+        this.isEditing = !this.isEditing
+        this.hasSaved = true
+      },
+    },
   }
-};
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+</style>

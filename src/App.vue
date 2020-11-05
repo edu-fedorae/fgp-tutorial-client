@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 import AppHeader from "@/components/core/AppHeader";
 import AppFooter from "@/components/core/AppFooter";
 
