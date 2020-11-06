@@ -9,6 +9,7 @@
         <li><router-link :to="{ name: 'Home'}">Sign-In</router-link></li>
         <li><router-link :to="{ name: 'Register'}">Register</router-link></li>
       </ul>
+      <!-- https://medium.com/@ishoshot/page-not-found-on-reload-vuejs-netlify-c71716e97e6 -->
     </div>
   </div>
 </template>
