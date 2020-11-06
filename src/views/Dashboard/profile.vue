@@ -1,14 +1,14 @@
 <template>
   <div class="profile">
-    <v-card class="overflow-hidden" color="purple lighten-1" dark>
-      <v-toolbar flat color="purple">
+    <v-card class="overflow-hidden" color="">
+      <v-toolbar flat color="">
         <v-icon>mdi-account</v-icon>
         <v-toolbar-title class="font-weight-light">
           User Profile
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn
-          color="purple darken-3"
+          color=""
           fab
           small
           @click="isEditing = !isEditing"

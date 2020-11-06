@@ -60,14 +60,14 @@
                         :items="items.type"
                         dense
                         filled
-                        prepend-icon="mdi-accounts"
+                        prepend-icon="mdi-account-multiple"
                         label="Tutor or Student"
                       ></v-autocomplete>
                     </v-form>
                   </v-card-text>
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary">Login</v-btn>
+                    <v-btn color="primary">Create</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-col>
