@@ -86,7 +86,8 @@ const routes = [
   },
   {
     path: "*",
-    components: Error
+    components: Error,
+    redirect: "/Error"
   }
 ];
 
