@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import 404 from "../views/404.vue";
+import Error from "../views/Error.vue";
 
 Vue.use(VueRouter);
 
@@ -86,7 +86,7 @@ const routes = [
   },
   {
     path: "/*",
-    components: 404
+    components: Error
   }
 ];
 
