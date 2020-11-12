@@ -1,6 +1,6 @@
 <template>
-  <div class="profile">
-    <v-card class="overflow-hidden" color="">
+  <v-container>
+    <v-card class="" color="" elevation="12">
       <v-toolbar flat color="">
         <v-icon>mdi-account</v-icon>
         <v-toolbar-title class="font-weight-light">
@@ -8,10 +8,10 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn
-          color=""
-          fab
-          small
-          @click="isEditing = !isEditing"
+            color=""
+            fab
+            small
+            @click="isEditing = !isEditing"
         >
           <v-icon v-if="isEditing">
             mdi-close
@@ -25,39 +25,31 @@
         <v-row>
           <v-col>
             <v-text-field
-              :disabled="!isEditing"
-              color="white"
-              label="First Name"
-            ></v-text-field>
-          </v-col>
-          <v-col>
-            <v-text-field
-              :disabled="!isEditing"
-              color="white"
-              label="Last Name"
+                :disabled="!isEditing"
+                color="white"
+                label="Name"
             ></v-text-field>
           </v-col>
         </v-row>
 
         <v-text-field
-          :disabled="!isEditing"
-          color="white"
-          label="Email"
+            :disabled="!isEditing"
+            color="white"
+            label="Email"
         ></v-text-field>
 
         <v-text-field
-          :disabled="!isEditing"
-          color="white"
-          label="Password"
+            :disabled="!isEditing"
+            color="white"
+            label="Password"
         ></v-text-field>
 
         <v-autocomplete
-          :disabled="!isEditing"
-          :items="items"
-          :filter="customFilter"
-          color="white"
-          item-text="name"
-          label="Tutor or Student"
+            :disabled="true"
+            :filter="customFilter"
+            color="white"
+            item-text="name"
+            :label="type"
         ></v-autocomplete>
       </v-card-text>
       <v-divider></v-divider>
@@ -71,7 +63,7 @@
         Your profile has been updated
       </v-snackbar>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -81,10 +73,7 @@ export default {
       hasSaved: false,
       isEditing: null,
       model: null,
-      items: [
-        { name: "Student", value: 0 },
-        { name: "Tutor", value: 1 }
-      ]
+      type: "Student"
     };
   },
   methods: {

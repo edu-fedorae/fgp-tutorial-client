@@ -1,14 +1,14 @@
 <template>
-  <div class="tutorials">
-    <v-row>
-      <v-col v-for="(i, n) in 8" :key="i">
+  <v-container>
+    <v-row dense>
+      <v-col v-for="(i, n) in 6" :key="i" class="d-inline">
         <v-card
-          class="mx-auto"
-          max-width="344"
+            max-width="344"
+            elevation="100"
         >
           <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-            height="200px"
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              height="200px"
           ></v-img>
 
           <v-card-title>
@@ -21,8 +21,8 @@
 
           <v-card-actions>
             <v-btn
-              color="orange lighten-2"
-              text
+                color="orange lighten-2"
+                text
             >
               Join
             </v-btn>
@@ -30,8 +30,8 @@
             <v-spacer></v-spacer>
 
             <v-btn
-              icon
-              @click="show = !show"
+                icon
+                @click="show = !show"
             >
               <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
             </v-btn>
@@ -49,7 +49,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>

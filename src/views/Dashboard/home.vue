@@ -85,7 +85,7 @@
 
     <v-row>
       <v-col sm="12" md="6" lg="6">
-        <v-card class="mx-auto" color="grey lighten-4" elevation="12" width="600" height="600">
+        <v-card class="mx-auto" color="grey lighten-4" elevation="12" width="600" height="620">
           <v-card-title>
             <v-icon
                 :color="checking ? 'red lighten-2' : 'indigo'"
@@ -134,7 +134,7 @@
         <v-card
             class="mx-auto"
             max-width="600"
-            height="610"
+            height="620"
             elevation="12"
         >
           <v-list-item two-line>
