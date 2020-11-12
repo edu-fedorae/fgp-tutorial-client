@@ -48,28 +48,22 @@
           v-if="primaryDrawer.type !== 'permanent'"
           @click.stop="primaryDrawer.model = !primaryDrawer.model"
         ></v-app-bar-nav-icon>
-        <v-toolbar-title
-          ><v-btn :to="{ name: 'Home' }" text>Tutorion</v-btn></v-toolbar-title
-        >
+
+        <v-btn :to="{ name: 'Home' }" text>Tutorion</v-btn>
+
         <v-spacer></v-spacer>
+
+        <v-btn :to="{ name: 'Dashboard-Home' }" icon>
+          <v-icon>mdi-view-dashboard</v-icon>
+        </v-btn>
 
         <v-btn icon>
           <v-icon>mdi-bell</v-icon>
         </v-btn>
 
-        <v-btn icon>
-          <v-icon>mdi-cog</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-account</v-icon>
-        </v-btn>
-
-        <v-btn :to="{ name: 'Home' }" icon>
+        <v-btn @click="logout" icon>
           <v-icon>mdi-logout</v-icon>
         </v-btn>
-
-
 
       </v-app-bar>
 
@@ -113,6 +107,11 @@ export default {
   },
   created() {
     this.$router.push("/dashboard/home")
+  },
+  methods: {
+    logout() {
+      this.$router.push({ name: 'Home' })
+    }
   }
 };
 </script>

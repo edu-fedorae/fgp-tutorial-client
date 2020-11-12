@@ -10,27 +10,27 @@
           <v-card-text>
             <v-form>
               <v-text-field
-                  v-model="form.email"
-                  label="Login"
-                  name="login"
-                  prepend-icon="mdi-account"
-                  type="text"
+                v-model="form.email"
+                label="Login"
+                name="login"
+                prepend-icon="mdi-account"
+                type="text"
               ></v-text-field>
 
               <v-text-field
-                  v-model="form.password"
-                  id="password"
-                  label="Password"
-                  name="password"
-                  prepend-icon="mdi-lock"
-                  type="password"
+                v-model="form.password"
+                id="password"
+                label="Password"
+                name="password"
+                prepend-icon="mdi-lock"
+                type="password"
               ></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn :to="{ name: 'Dashboard-Home' }" color="primary"
-            >Login</v-btn
+              >Login</v-btn
             >
           </v-card-actions>
         </v-card>
@@ -40,16 +40,23 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        form: {
-          email: "",
-          password: ""
-        }
+import { mapGetters } from "vuex";
+
+export default {
+  data() {
+    return {
+      form: {
+        email: "",
+        password: ""
       }
-    }
+    };
+  },
+  computed: {
+    ...mapGetters([
+        "user"
+    ])
   }
+};
 </script>
 
 <style lang="css" scoped></style>

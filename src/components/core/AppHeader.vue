@@ -1,11 +1,10 @@
 <template>
   <div>
     <v-app-bar color="#1E3D58" dark>
-       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>
-        <v-btn :to="{ name: 'Home' }" text  outlined>Tutorion</v-btn>
-      </v-toolbar-title>
+     <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-btn :to="{ name: 'Home' }" text  outlined>Tutorion</v-btn>
 
       <v-spacer></v-spacer>
 
