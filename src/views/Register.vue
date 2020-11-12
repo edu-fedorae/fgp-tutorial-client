@@ -31,9 +31,9 @@
             <v-window-item :value="2">
               <v-card-text>
                 <v-text-field
-                    label="Password"
-                    type="password"
-                    prepend-icon="mdi-lock"
+                  label="Password"
+                  type="password"
+                  prepend-icon="mdi-lock"
                 ></v-text-field>
                 <v-text-field
                   label="Confirm Password"
@@ -49,8 +49,8 @@
             <v-window-item :value="3">
               <v-card-text>
                 <v-autocomplete
-                  v-model="items.value"
-                  :items="items.type"
+                  v-model="values"
+                  :items="types"
                   dense
                   filled
                   prepend-icon="mdi-account-multiple"
@@ -104,11 +104,9 @@
 export default {
   data() {
     return {
-      items: [
-        { type: "Student", value: 0 },
-        { type: "Tutor", value: 1 }
-      ],
-      step: 1
+      step: 1,
+      types: ["Student", "Tutor"],
+      values: [0, 1]
     };
   },
   computed: {
