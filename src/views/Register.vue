@@ -2,99 +2,120 @@
   <v-container class="fill-height" fluid>
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="4">
-        <v-card class="mx-auto elevation-12" max-width="500">
-          <v-card-title class="title font-weight-regular justify-space-between">
-            <span>{{ currentTitle }}</span>
-            <v-avatar
-              color="primary lighten-2"
-              class="subheading white--text"
-              size="24"
-              v-text="step"
-            ></v-avatar>
-          </v-card-title>
+      <!--    For when it's time to submit    -->
+        <v-form>
+          <v-card class="mx-auto elevation-12" max-width="500">
+            <v-card-title class="title font-weight-regular justify-space-between">
+              <span>{{ currentTitle }}</span>
+              <v-avatar
+                  color="primary lighten-2"
+                  class="subheading white--text"
+                  size="24"
+                  v-text="step"
+              ></v-avatar>
+            </v-card-title>
 
-          <v-window v-model="step">
-            <v-window-item :value="1">
-              <v-card-text>
-                <v-text-field
-                  label="Email"
-                  value="john@stu.ncu.edu.jm"
-                  prepend-icon="mdi-email"
-                ></v-text-field>
-                <span class="caption grey--text text--darken-1">
+            <v-window v-model="step">
+              <v-window-item :value="1">
+                <v-card-text>
+                  <v-text-field
+                      v-model="form.name"
+                      label="Name"
+                      value="Jane Doe"
+                      prepend-icon="mdi-account"
+                  ></v-text-field>
+                  <v-text-field
+                      v-model="form.email"
+                      label="Email"
+                      value="jane@tutorion.com"
+                      prepend-icon="mdi-email"
+                  ></v-text-field>
+                  <span class="caption grey--text text--darken-1">
                   This is the email you will use to login to your Tutorion
                   account
                 </span>
-              </v-card-text>
-            </v-window-item>
+                </v-card-text>
+              </v-window-item>
 
-            <v-window-item :value="2">
-              <v-card-text>
-                <v-text-field
-                  label="Password"
-                  type="password"
-                  prepend-icon="mdi-lock"
-                ></v-text-field>
-                <v-text-field
-                  label="Confirm Password"
-                  type="password"
-                  prepend-icon="mdi-lock-outline"
-                ></v-text-field>
-                <span class="caption grey--text text--darken-1">
+              <v-window-item :value="2">
+                <v-card-text>
+                  <v-text-field
+                      v-model="form.password"
+                      label="Password"
+                      type="password"
+                      prepend-icon="mdi-lock"
+                  ></v-text-field>
+                  <v-text-field
+                      v-model="form.passwordConfirm"
+                      label="Confirm Password"
+                      type="password"
+                      prepend-icon="mdi-lock-outline"
+                  ></v-text-field>
+                  <span class="caption grey--text text--darken-1">
                   Please enter a password for your account
                 </span>
-              </v-card-text>
-            </v-window-item>
+                </v-card-text>
+              </v-window-item>
 
-            <v-window-item :value="3">
-              <v-card-text>
-                <v-autocomplete
-                  v-model="values"
-                  :items="types"
-                  dense
-                  filled
-                  prepend-icon="mdi-account-multiple"
-                  label="Tutor or Student"
-                ></v-autocomplete>
-                <span class="caption grey--text text--darken-1">
+              <v-window-item :value="3">
+                <v-card-text>
+                  <v-autocomplete
+                      v-model="values"
+                      :items="types"
+                      dense
+                      filled
+                      prepend-icon="mdi-account-multiple"
+                      label="Tutor or Student"
+                  ></v-autocomplete>
+                  <span class="caption grey--text text--darken-1">
                   Please select your role
                 </span>
-              </v-card-text>
-            </v-window-item>
+                </v-card-text>
+              </v-window-item>
 
-            <v-window-item :value="4">
-              <div class="pa-4 text-center">
-                <v-img
-                  class="mb-4"
-                  contain
-                  height="128"
-                  src="https://cdn.vuetifyjs.com/images/logos/v.svg"
-                ></v-img>
-                <h3 class="title font-weight-light mb-2">
-                  Welcome to Tutorion
-                </h3>
-                <span class="caption grey--text">Thanks for signing up!</span>
-              </div>
-            </v-window-item>
-          </v-window>
+              <v-window-item :value="4">
+                <div class="pa-4 text-center">
+                  <v-img
+                      class="mb-4"
+                      contain
+                      height="128"
+                      src="https://cdn.vuetifyjs.com/images/logos/v.svg"
+                  ></v-img>
+                  <h3 class="title font-weight-light mb-2">
+                    Welcome to Tutorion
+                  </h3>
+                  <span class="caption grey--text">Thanks for signing up!</span>
+                </div>
+              </v-window-item>
+            </v-window>
 
-          <v-divider></v-divider>
+            <v-divider></v-divider>
 
-          <v-card-actions>
-            <v-btn :disabled="step === 1" text @click="step--">
-              Back
-            </v-btn>
-            <v-spacer></v-spacer>
-            <v-btn
-              :disabled="step === 4"
-              color="primary"
-              depressed
-              @click="step++"
-            >
-              Next
-            </v-btn>
-          </v-card-actions>
-        </v-card>
+            <v-card-actions>
+              <v-btn :disabled="step === 1" text @click="step--">
+                Back
+              </v-btn>
+              <v-spacer></v-spacer>
+              <v-btn
+                  v-if="step === 4"
+                  :to="{ name: 'Dashboard-Home'}"
+                  color="success"
+                  depressed
+              >
+                Dashboard
+              </v-btn>
+              <v-btn
+                  v-else
+                  color="primary"
+                  depressed
+                  @click="step++"
+              >
+                Next
+              </v-btn>
+
+            </v-card-actions>
+          </v-card>
+        </v-form>
       </v-col>
     </v-row>
   </v-container>
@@ -104,6 +125,13 @@
 export default {
   data() {
     return {
+      form: {
+        name: "",
+        email: "",
+        password: "",
+        passwordConfirm: "",
+        role: this.values
+      },
       step: 1,
       types: ["Student", "Tutor"],
       values: [0, 1]
