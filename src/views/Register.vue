@@ -2,16 +2,19 @@
   <v-container class="fill-height" fluid>
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="4">
-      <!--    For when it's time to submit    -->
+        <!--    For when it's time to submit    -->
         <v-form>
           <v-card class="mx-auto elevation-12" max-width="500">
-            <v-card-title class="title font-weight-regular justify-space-between">
+            <v-card-title
+              class="title font-weight-regular justify-space-between"
+            >
               <span>{{ currentTitle }}</span>
               <v-avatar
-                  color="primary lighten-2"
-                  class="subheading white--text"
-                  size="24"
-                  v-text="step"
+                color="#1E3D58"
+                style="color: #ffffff;"
+                class="subheading white--text"
+                size="24"
+                v-text="step"
               ></v-avatar>
             </v-card-title>
 
@@ -19,67 +22,67 @@
               <v-window-item :value="1">
                 <v-card-text>
                   <v-text-field
-                      v-model="form.name"
-                      label="Name"
-                      value="Jane Doe"
-                      prepend-icon="mdi-account"
+                    v-model="form.name"
+                    label="Name"
+                    value="Jane Doe"
+                    prepend-icon="mdi-account"
                   ></v-text-field>
                   <v-text-field
-                      v-model="form.email"
-                      label="Email"
-                      value="jane@tutorion.com"
-                      prepend-icon="mdi-email"
+                    v-model="form.email"
+                    label="Email"
+                    value="jane@tutorion.com"
+                    prepend-icon="mdi-email"
                   ></v-text-field>
                   <span class="caption grey--text text--darken-1">
-                  This is the email you will use to login to your Tutorion
-                  account
-                </span>
+                    This is the email you will use to login to your Tutorion
+                    account
+                  </span>
                 </v-card-text>
               </v-window-item>
 
               <v-window-item :value="2">
                 <v-card-text>
                   <v-text-field
-                      v-model="form.password"
-                      label="Password"
-                      type="password"
-                      prepend-icon="mdi-lock"
+                    v-model="form.password"
+                    label="Password"
+                    type="password"
+                    prepend-icon="mdi-lock"
                   ></v-text-field>
                   <v-text-field
-                      v-model="form.passwordConfirm"
-                      label="Confirm Password"
-                      type="password"
-                      prepend-icon="mdi-lock-outline"
+                    v-model="form.passwordConfirm"
+                    label="Confirm Password"
+                    type="password"
+                    prepend-icon="mdi-lock-outline"
                   ></v-text-field>
                   <span class="caption grey--text text--darken-1">
-                  Please enter a password for your account
-                </span>
+                    Please enter a password for your account
+                  </span>
                 </v-card-text>
               </v-window-item>
 
               <v-window-item :value="3">
                 <v-card-text>
                   <v-autocomplete
-                      v-model="values"
-                      :items="types"
-                      dense
-                      filled
-                      prepend-icon="mdi-account-multiple"
-                      label="Tutor or Student"
+                    v-model="values"
+                    :items="types"
+                    dense
+                    filled
+                    prepend-icon="mdi-account-multiple"
+                    label="Tutor or Student"
                   ></v-autocomplete>
                   <span class="caption grey--text text--darken-1">
-                  Please select your role
-                </span>
+                    Please select your role
+                  </span>
                 </v-card-text>
               </v-window-item>
 
               <v-window-item :value="4">
                 <div class="pa-4 text-center">
                   <v-img
-                      class="mb-4"
-                      contain
-                      height="128"
-                      src="https://cdn.vuetifyjs.com/images/logos/v.svg"
+                    class="mb-4"
+                    contain
+                    height="128"
+                    src="https://cdn.vuetifyjs.com/images/logos/v.svg"
                   ></v-img>
                   <h3 class="title font-weight-light mb-2">
                     Welcome to Tutorion
@@ -97,22 +100,22 @@
               </v-btn>
               <v-spacer></v-spacer>
               <v-btn
-                  v-if="step === 4"
-                  :to="{ name: 'Dashboard-Home'}"
-                  color="success"
-                  depressed
+                v-if="step === 4"
+                :to="{ name: 'Dashboard-Home' }"
+                color="success"
+                depressed
               >
                 Dashboard
               </v-btn>
               <v-btn
-                  v-else
-                  color="primary"
-                  depressed
-                  @click="step++"
+                v-else
+                color="#1E3D58"
+                style="color: #ffffff"
+                depressed
+                @click="step++"
               >
                 Next
               </v-btn>
-
             </v-card-actions>
           </v-card>
         </v-form>
