@@ -13,7 +13,7 @@
           </template>
 
           <v-img
-            height="250"
+            height="200"
             src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
           ></v-img>
 

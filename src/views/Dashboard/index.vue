@@ -51,12 +51,30 @@
         <v-toolbar-title
           ><v-btn :to="{ name: 'Home' }" text>Tutorion</v-btn></v-toolbar-title
         >
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+          <v-icon>mdi-bell</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>mdi-cog</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>mdi-account</v-icon>
+        </v-btn>
+
+        <v-btn :to="{ name: 'Home' }" icon>
+          <v-icon>mdi-logout</v-icon>
+        </v-btn>
+
+
+
       </v-app-bar>
 
       <v-main>
-        <v-container fluid>
-          <router-view></router-view>
-        </v-container>
+        <router-view></router-view>
       </v-main>
     </v-app>
   </div>
@@ -92,6 +110,9 @@ export default {
         { title: "Settings", icon: "mdi-cog", src: "/dashboard/settings" }
       ]
     };
+  },
+  created() {
+    this.$router.push("/dashboard/home")
   }
 };
 </script>

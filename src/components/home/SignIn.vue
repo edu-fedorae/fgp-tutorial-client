@@ -3,13 +3,14 @@
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="4">
         <v-card class="elevation-12">
-          <v-toolbar color="primary" dark flat>
+          <v-toolbar color="#1E3D58" dark flat>
             <v-toolbar-title>Sign-In</v-toolbar-title>
             <v-spacer></v-spacer>
           </v-toolbar>
           <v-card-text>
             <v-form>
               <v-text-field
+                  v-model="form.email"
                   label="Login"
                   name="login"
                   prepend-icon="mdi-account"
@@ -17,6 +18,7 @@
               ></v-text-field>
 
               <v-text-field
+                  v-model="form.password"
                   id="password"
                   label="Password"
                   name="password"
@@ -38,7 +40,16 @@
 </template>
 
 <script>
-export default {};
+  export default {
+    data() {
+      return {
+        form: {
+          email: "",
+          password: ""
+        }
+      }
+    }
+  }
 </script>
 
 <style lang="css" scoped></style>
