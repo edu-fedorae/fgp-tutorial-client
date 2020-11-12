@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <v-col sm="12" md="6" lg="6">
-        <v-card class="mt-4 mx-auto" max-width="600" height="400" elevation="12">
+      <v-col sm="12" md="12" lg="6">
+        <v-card class="mt-4 mx-auto" width="600" height="400" elevation="12">
           <v-sheet
             class="v-sheet--offset mx-auto"
             color="cyan"
@@ -36,7 +36,7 @@
         </v-card>
       </v-col>
 
-      <v-col sm="12" md="6" lg="6">
+      <v-col sm="12" md="12" lg="6">
         <v-card
             class="mx-auto text-center"
             color="green"
@@ -85,7 +85,7 @@
 
     <v-row>
       <v-col sm="12" md="6" lg="6">
-        <v-card class="mx-auto" color="grey lighten-4" elevation="12" max-width="600" height="600">
+        <v-card class="mx-auto" color="grey lighten-4" elevation="12" width="600" height="600">
           <v-card-title>
             <v-icon
                 :color="checking ? 'red lighten-2' : 'indigo'"
@@ -134,7 +134,7 @@
         <v-card
             class="mx-auto"
             max-width="600"
-            height="600"
+            height="610"
             elevation="12"
         >
           <v-list-item two-line>
