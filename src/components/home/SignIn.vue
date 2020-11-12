@@ -11,10 +11,10 @@
             <v-form>
               <v-text-field
                 v-model="form.email"
-                label="Login"
-                name="login"
-                prepend-icon="mdi-account"
-                type="text"
+                label="Email"
+                name="email"
+                prepend-icon="mdi-email"
+                type="email"
               ></v-text-field>
 
               <v-text-field
