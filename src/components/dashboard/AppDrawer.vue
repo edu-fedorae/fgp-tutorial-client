@@ -55,7 +55,7 @@ export default {
         mini: false
       },
       items: [
-        { title: "Home", icon: "mdi-view-dashboard", src: "/dashboard/home" },
+        { title: "Home", icon: "mdi-join-dashboard", src: "/dashboard/home" },
         { title: "Profile", icon: "mdi-account", src: "/dashboard/profile" },
         {
           title: "Tutorials",

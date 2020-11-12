@@ -23,65 +23,44 @@ const routes = [
   {
     path: "/register",
     name: "Register",
-    // route level code-splitting
-    // this generates a separate chunk (register.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "register" */ "../views/Register.vue")
+      import("../views/Register.vue")
   },
   {
     path: "/dashboard",
     name: "Dashboard",
-    // route level code-splitting
-    // this generates a separate chunk (dashboard.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(
-        /* webpackChunkName: "dashboard" */ "../views/Dashboard/index.vue"
-      ),
-    children: [
-      {
-        path: "/dashboard/home",
-        name: "Dashboard-Home",
-        // route level code-splitting
-        // this generates a separate chunk (home.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(/* webpackChunkName: "home" */ "../views/Dashboard/home.vue")
-      },
-      {
-        path: "/dashboard/profile",
-        name: "Dashboard-Profile",
-        // route level code-splitting
-        // this generates a separate chunk (profile.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(
-            /* webpackChunkName: "profile" */ "../views/Dashboard/profile.vue"
-          )
-      },
-      {
-        path: "/dashboard/settings",
-        name: "Dashboard-Settings",
-        // route level code-splitting
-        // this generates a separate chunk (settings.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(
-            /* webpackChunkName: "settings" */ "../views/Dashboard/settings.vue"
-          )
-      },
-      {
-        path: "/dashboard/tutorials",
-        name: "Dashboard-Tutorials",
-        // route level code-splitting
-        // this generates a separate chunk (tutorials.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(
-            /* webpackChunkName: "tutorials" */ "../views/Dashboard/tutorials.vue"
-          )
-      }
+      import("../views/Dashboard/index.vue"),
+      children: [
+        {
+          path: "/dashboard/home",
+          name: "Dashboard-Home",
+          component: () =>
+            import("../views/Dashboard/home.vue")
+        },
+        {
+          path: "/dashboard/profile",
+          name: "Dashboard-Profile",
+          component: () =>
+            import("../views/Dashboard/profile.vue")
+        },
+        {
+          path: "/dashboard/settings",
+          name: "Dashboard-Settings",
+          component: () =>
+            import("../views/Dashboard/settings.vue")
+        },
+        {
+          path: "/dashboard/tutorials",
+          name: "Dashboard-Tutorials",
+          component: () =>
+            import("../views/Dashboard/tutorials/index.vue")
+        },
+        {
+          path: "/dashboard/tutorials/:tutorial",
+          name: "Dashboard-Tutorial",
+          component: () => import("../views/Dashboard/tutorials/_tutorial")
+        }
     ]
   },
   {

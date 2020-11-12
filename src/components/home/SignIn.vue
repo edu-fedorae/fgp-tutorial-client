@@ -40,21 +40,14 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   data() {
     return {
       form: {
-        email: "",
-        password: ""
+        email: "jane@tutorion.com",
+        password: "password"
       }
     };
-  },
-  computed: {
-    ...mapGetters([
-        "user"
-    ])
   }
 };
 </script>

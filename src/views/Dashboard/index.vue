@@ -18,13 +18,13 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>John Leider</v-list-item-title>
+            <v-list-item-title>Jane Doe</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-divider></v-divider>
 
-        <v-list dense>
+        <v-list>
           <v-list-item
             v-for="item in items"
             :key="item.title"
@@ -64,7 +64,6 @@
         <v-btn @click="logout" icon>
           <v-icon>mdi-logout</v-icon>
         </v-btn>
-
       </v-app-bar>
 
       <v-main>
@@ -77,6 +76,8 @@
 <script>
 // import AppDrawer from "@/components/dashboard/AppDrawer";
 // import DashHeader from "@/components/dashboard/DashHeader";
+
+import { mapGetters } from "vuex";
 
 export default {
   // components: {
@@ -94,7 +95,7 @@ export default {
         mini: false
       },
       items: [
-        { title: "Home", icon: "mdi-view-dashboard", src: "/dashboard" },
+        { title: "Home", icon: "mdi-join-dashboard", src: "/dashboard" },
         { title: "Profile", icon: "mdi-account", src: "/dashboard/profile" },
         {
           title: "Tutorials",
@@ -106,11 +107,14 @@ export default {
     };
   },
   created() {
-    this.$router.push("/dashboard/home")
+    this.$router.push("/dashboard/home");
+  },
+  computed: {
+    ...mapGetters(["user"])
   },
   methods: {
     logout() {
-      this.$router.push({ name: 'Home' })
+      this.$router.push({ name: "Home" });
     }
   }
 };
