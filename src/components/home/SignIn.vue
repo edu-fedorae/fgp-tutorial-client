@@ -29,7 +29,10 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn :to="{ name: 'Dashboard-Home' }" color="primary"
+            <v-btn
+              :to="{ name: 'Dashboard-Home' }"
+              color="#1E3D58"
+              style="color: #ffffff"
               >Login</v-btn
             >
           </v-card-actions>
