@@ -1,6 +1,6 @@
 <template>
   <div class="app-footer">
-    <v-footer :inset="footer.inset" app>
+    <v-footer :inset="footer.inset">
       <span class="px-4">&copy; {{ new Date().getFullYear() }}</span>
       <v-spacer></v-spacer>
       <span><router-link :to="{ name: 'About' }">About Us</router-link></span>
