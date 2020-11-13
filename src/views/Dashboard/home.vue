@@ -38,26 +38,24 @@
 
       <v-col sm="12" md="12" lg="6">
         <v-card
-            class="mx-auto text-center"
-            color="green"
-            elevation="12"
-            dark
-            max-width="600"
-            height="400"
+          class="mx-auto text-center"
+          color="green"
+          elevation="12"
+          dark
+          max-width="600"
+          height="400"
         >
           <v-card-text>
             <v-sheet color="rgba(0, 0, 0, .12)">
               <v-sparkline
-                  :value="value"
-                  color="rgba(255, 255, 255, .7)"
-                  height="100"
-                  padding="24"
-                  stroke-linecap="round"
-                  smooth
+                :value="value"
+                color="rgba(255, 255, 255, .7)"
+                height="100"
+                padding="24"
+                stroke-linecap="round"
+                smooth
               >
-                <template v-slot:label="item">
-                  ${{ item.value }}
-                </template>
+                <template v-slot:label="item"> ${{ item.value }} </template>
               </v-sparkline>
             </v-sheet>
           </v-card-text>
@@ -71,27 +69,29 @@
           <v-divider></v-divider>
 
           <v-card-actions class="justify-center">
-            <v-btn
-                block
-                text
-            >
+            <v-btn block text>
               Progress Report
             </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
-
     </v-row>
 
     <v-row>
       <v-col sm="12" md="6" lg="6">
-        <v-card class="mx-auto" color="grey lighten-4" elevation="12" width="600" height="620">
+        <v-card
+          class="mx-auto"
+          color="grey lighten-4"
+          elevation="12"
+          width="600"
+          height="620"
+        >
           <v-card-title>
             <v-icon
-                :color="checking ? 'red lighten-2' : 'indigo'"
-                class="mr-12"
-                size="64"
-                @click="takePulse"
+              :color="checking ? 'red lighten-2' : 'indigo'"
+              class="mr-12"
+              size="64"
+              @click="takePulse"
             >
               mdi-heart-pulse
             </v-icon>
@@ -101,8 +101,8 @@
               </div>
               <div>
                 <span
-                    class="display-2 font-weight-black"
-                    v-text="avg || '—'"
+                  class="display-2 font-weight-black"
+                  v-text="avg || '—'"
                 ></span>
                 <strong v-if="avg">BPM</strong>
               </div>
@@ -117,48 +117,41 @@
 
           <v-sheet color="transparent">
             <v-sparkline
-                :key="String(avg)"
-                :smooth="16"
-                :gradient="['#f72047', '#ffd200', '#1feaea']"
-                :line-width="3"
-                :value="heartbeats"
-                auto-draw
-                stroke-linecap="round"
+              :key="String(avg)"
+              :smooth="16"
+              :gradient="['#f72047', '#ffd200', '#1feaea']"
+              :line-width="3"
+              :value="heartbeats"
+              auto-draw
+              stroke-linecap="round"
             ></v-sparkline>
           </v-sheet>
         </v-card>
       </v-col>
 
-
       <v-col sm="12" md="6" lg="6">
-        <v-card
-            class="mx-auto"
-            max-width="600"
-            height="620"
-            elevation="12"
-        >
+        <v-card class="mx-auto" max-width="600" height="620" elevation="12">
           <v-list-item two-line>
             <v-list-item-content>
               <v-list-item-title class="headline">
                 Mandeville
               </v-list-item-title>
-              <v-list-item-subtitle>Mon, 12:30 PM, Mostly sunny</v-list-item-subtitle>
+              <v-list-item-subtitle
+                >Mon, 12:30 PM, Mostly sunny</v-list-item-subtitle
+              >
             </v-list-item-content>
           </v-list-item>
 
           <v-card-text>
             <v-row align="center">
-              <v-col
-                  class="display-3"
-                  cols="6"
-              >
+              <v-col class="display-3" cols="6">
                 23&deg;C
               </v-col>
               <v-col cols="6">
                 <v-img
-                    src="https://cdn.vuetifyjs.com/images/cards/sun.png"
-                    alt="Sunny image"
-                    width="92"
+                  src="https://cdn.vuetifyjs.com/images/cards/sun.png"
+                  alt="Sunny image"
+                  width="92"
                 ></v-img>
               </v-col>
             </v-row>
@@ -179,18 +172,15 @@
           </v-list-item>
 
           <v-slider
-              v-model="time"
-              :max="6"
-              :tick-labels="labels"
-              class="mx-4"
-              ticks
+            v-model="time"
+            :max="6"
+            :tick-labels="labels"
+            class="mx-4"
+            ticks
           ></v-slider>
 
           <v-list class="transparent">
-            <v-list-item
-                v-for="item in forecast"
-                :key="item.day"
-            >
+            <v-list-item v-for="item in forecast" :key="item.day">
               <v-list-item-title>{{ item.day }}</v-list-item-title>
 
               <v-list-item-icon>
@@ -225,33 +215,23 @@ export default {
       value: [423, 446, 675, 510, 590, 610, 760],
       checking: false,
       heartbeats: [],
-      labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
+      labels: ["SU", "MO", "TU", "WED", "TH", "FR", "SA"],
       time: 0,
       forecast: [
-        { day: 'Tuesday', icon: 'mdi-white-balance-sunny', temp: '24\xB0/12\xB0' },
-        { day: 'Wednesday', icon: 'mdi-white-balance-sunny', temp: '22\xB0/14\xB0' },
-        { day: 'Thursday', icon: 'mdi-cloud', temp: '25\xB0/15\xB0' },
+        {
+          day: "Tuesday",
+          icon: "mdi-white-balance-sunny",
+          temp: "24\xB0/12\xB0"
+        },
+        {
+          day: "Wednesday",
+          icon: "mdi-white-balance-sunny",
+          temp: "22\xB0/14\xB0"
+        },
+        { day: "Thursday", icon: "mdi-cloud", temp: "25\xB0/15\xB0" }
       ],
-      wlabels: [
-        '12am',
-        '3am',
-        '6am',
-        '9am',
-        '12pm',
-        '3pm',
-        '6pm',
-        '9pm',
-      ],
-      wvalue: [
-        200,
-        675,
-        410,
-        390,
-        310,
-        460,
-        250,
-        240,
-      ],
+      wlabels: ["12am", "3am", "6am", "9am", "12pm", "3pm", "6pm", "9pm"],
+      wvalue: [200, 675, 410, 390, 310, 460, 250, 240]
     };
   },
   computed: {

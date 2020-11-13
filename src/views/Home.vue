@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <SignIn />
+    <SignIn v-if="!isAuthenticated" />
     <v-divider></v-divider>
     <v-container>
       <h1>Courses</h1>
@@ -16,9 +16,10 @@
 </template>
 
 <script>
-import SignIn from "@/components/home/SignIn";
-import ComputerScience from "@/components/courses/ComputerScience";
+import SignIn from "../components/home/SignIn";
+import ComputerScience from "../components/courses/ComputerScience";
 import Psychology from "../components/courses/Psychology";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -31,7 +32,12 @@ export default {
     return {
       show: false
     };
-  }
+  },
+  computed: {
+    ...mapGetters('context', [
+      'isAuthenticated'
+    ])
+  },
 };
 </script>
 

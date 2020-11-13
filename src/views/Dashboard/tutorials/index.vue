@@ -4,20 +4,21 @@
       <v-col v-for="(i, n) in 6" :key="i" class="d-inline">
         <v-card max-width="344" elevation="100">
           <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              height="200px"
+            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            height="200px"
           ></v-img>
 
           <v-card-title>
             Top western road trips
           </v-card-title>
 
-          <v-card-subtitle>
-            1,000 miles of wonder {{ n }}
-          </v-card-subtitle>
+          <v-card-subtitle> 1,000 miles of wonder {{ n }} </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn color="orange lighten-2" :to="{ path:`/dashboard/tutorials/${n}`}">
+            <v-btn
+              color="orange lighten-2"
+              :to="{ path: `/dashboard/tutorials/${n}` }"
+            >
               Join
             </v-btn>
 
@@ -25,8 +26,8 @@
 
             <v-btn icon @click="show = !show">
               <v-icon>{{
-                  show ? "mdi-chevron-up" : "mdi-chevron-down"
-                }}</v-icon>
+                show ? "mdi-chevron-up" : "mdi-chevron-down"
+              }}</v-icon>
             </v-btn>
           </v-card-actions>
 

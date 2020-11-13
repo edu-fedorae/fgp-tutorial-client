@@ -37,6 +37,9 @@
                     This is the email you will use to login to your Tutorion
                     account
                   </span>
+                  <span class="caption grey--text text--darken-1">
+                    Already have an account? <router-link :to="{name: 'Home'}">Sign-In</router-link>
+                  </span>
                 </v-card-text>
               </v-window-item>
 

@@ -7,12 +7,7 @@
           User Profile
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn
-            color=""
-            fab
-            small
-            @click="isEditing = !isEditing"
-        >
+        <v-btn color="" fab small @click="isEditing = !isEditing">
           <v-icon v-if="isEditing">
             mdi-close
           </v-icon>
@@ -25,31 +20,34 @@
         <v-row>
           <v-col>
             <v-text-field
-                :disabled="!isEditing"
-                color="white"
-                label="Name"
+                v-model="user.name"
+              :disabled="!isEditing"
+              color="white"
+              label="Name"
             ></v-text-field>
           </v-col>
         </v-row>
 
         <v-text-field
+            v-model="user.email"
             :disabled="!isEditing"
-            color="white"
-            label="Email"
+          color="white"
+          label="Email"
         ></v-text-field>
 
         <v-text-field
+            v-model="user.password"
             :disabled="!isEditing"
-            color="white"
-            label="Password"
+          color="white"
+          label="Password"
         ></v-text-field>
 
         <v-autocomplete
-            :disabled="true"
-            :filter="customFilter"
-            color="white"
-            item-text="name"
-            :label="type"
+          :disabled="true"
+          :filter="customFilter"
+          color="white"
+          item-text="name"
+          :label="type"
         ></v-autocomplete>
       </v-card-text>
       <v-divider></v-divider>
@@ -67,6 +65,8 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
   data() {
     return {
@@ -75,6 +75,11 @@ export default {
       model: null,
       type: "Student"
     };
+  },
+  computed: {
+    ...mapState('context', [
+      'user'
+    ])
   },
   methods: {
     customFilter(item, queryText) {

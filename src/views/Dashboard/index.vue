@@ -18,7 +18,8 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Jane Doe</v-list-item-title>
+            <v-list-item-title>{{ user.name }}</v-list-item-title>
+            <small>Student</small>
           </v-list-item-content>
         </v-list-item>
 
@@ -49,19 +50,19 @@
           @click.stop="primaryDrawer.model = !primaryDrawer.model"
         ></v-app-bar-nav-icon>
 
-        <v-btn :to="{ name: 'Home' }" text>Tutorion</v-btn>
+        <v-btn title="Tutorion Home" :to="{ name: 'Home' }" text>Tutorion</v-btn>
 
         <v-spacer></v-spacer>
 
-        <v-btn :to="{ name: 'Dashboard-Home' }" icon>
+        <v-btn title="Dashboard" :to="{ name: 'Dashboard-Home' }" icon>
           <v-icon>mdi-view-dashboard</v-icon>
         </v-btn>
 
-        <v-btn icon>
+        <v-btn title="Notifications" icon>
           <v-icon>mdi-bell</v-icon>
         </v-btn>
 
-        <v-btn @click="logout" icon>
+        <v-btn title="Logout" @click.prevent="logout" icon>
           <v-icon>mdi-logout</v-icon>
         </v-btn>
       </v-app-bar>
@@ -77,7 +78,7 @@
 // import AppDrawer from "@/components/dashboard/AppDrawer";
 // import DashHeader from "@/components/dashboard/DashHeader";
 
-import { mapGetters } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   // components: {
@@ -106,16 +107,15 @@ export default {
       ]
     };
   },
-  created() {
-    this.$router.push("/dashboard/home");
-  },
   computed: {
-    ...mapGetters(["user"])
+    ...mapState('context', [
+      'user'
+    ]),
   },
   methods: {
-    logout() {
-      this.$router.push({ name: "Home" });
-    }
+    ...mapActions('context', [
+      'logout'
+    ])
   }
 };
 </script>

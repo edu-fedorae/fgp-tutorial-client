@@ -23,44 +23,39 @@ const routes = [
   {
     path: "/register",
     name: "Register",
-    component: () =>
-      import("../views/Register.vue")
+    component: () => import("../views/Register.vue")
   },
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: () =>
-      import("../views/Dashboard/index.vue"),
-      children: [
-        {
-          path: "/dashboard/home",
-          name: "Dashboard-Home",
-          component: () =>
-            import("../views/Dashboard/home.vue")
-        },
-        {
-          path: "/dashboard/profile",
-          name: "Dashboard-Profile",
-          component: () =>
-            import("../views/Dashboard/profile.vue")
-        },
-        {
-          path: "/dashboard/settings",
-          name: "Dashboard-Settings",
-          component: () =>
-            import("../views/Dashboard/settings.vue")
-        },
-        {
-          path: "/dashboard/tutorials",
-          name: "Dashboard-Tutorials",
-          component: () =>
-            import("../views/Dashboard/tutorials/index.vue")
-        },
-        {
-          path: "/dashboard/tutorials/:tutorial",
-          name: "Dashboard-Tutorial",
-          component: () => import("../views/Dashboard/tutorials/_tutorial")
-        }
+    component: () => import("../views/Dashboard/index.vue"),
+
+    children: [
+      {
+        path: "/dashboard/home",
+        name: "Dashboard-Home",
+        component: () => import("../views/Dashboard/home.vue")
+      },
+      {
+        path: "/dashboard/profile",
+        name: "Dashboard-Profile",
+        component: () => import("../views/Dashboard/profile.vue")
+      },
+      {
+        path: "/dashboard/settings",
+        name: "Dashboard-Settings",
+        component: () => import("../views/Dashboard/settings.vue")
+      },
+      {
+        path: "/dashboard/tutorials",
+        name: "Dashboard-Tutorials",
+        component: () => import("../views/Dashboard/tutorials/index.vue")
+      },
+      {
+        path: "/dashboard/tutorials/:tutorial",
+        name: "Dashboard-Tutorial",
+        component: () => import("../views/Dashboard/tutorials/_tutorial")
+      }
     ]
   },
   {

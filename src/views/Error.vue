@@ -5,17 +5,16 @@
       // Should be conditional if auth or not
       <p>Here are some option:</p>
       <ul>
-        <li><router-link :to="{ name: 'Home'}">Home</router-link></li>
-        <li><router-link :to="{ name: 'Home'}">Sign-In</router-link></li>
-        <li><router-link :to="{ name: 'Register'}">Register</router-link></li>
+        <li><router-link :to="{ name: 'Home' }">Home</router-link></li>
+        <li><router-link :to="{ name: 'Home' }">Sign-In</router-link></li>
+        <li><router-link :to="{ name: 'Register' }">Register</router-link></li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 
 <style lang="css" scoped>

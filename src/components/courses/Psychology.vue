@@ -6,15 +6,15 @@
         <v-card :loading="loading" max-width="374" elevation="12" dense>
           <template slot="progress">
             <v-progress-linear
-                color="deep-purple"
-                height="10"
-                indeterminate
+              color="deep-purple"
+              height="10"
+              indeterminate
             ></v-progress-linear>
           </template>
 
           <v-img
-              height="200"
-              src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+            height="200"
+            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
           ></v-img>
 
           <v-card-title>Principles of Psychology</v-card-title>
@@ -22,12 +22,12 @@
           <v-card-text>
             <v-row align="left" class="mx-0">
               <v-rating
-                  :value="4.5"
-                  color="amber"
-                  dense
-                  half-increments
-                  readonly
-                  size="14"
+                :value="4.5"
+                color="amber"
+                dense
+                half-increments
+                readonly
+                size="14"
               ></v-rating>
 
               <div class="grey--text ml-4">
@@ -49,9 +49,9 @@
 
           <v-card-text>
             <v-chip-group
-                v-model="selection"
-                active-class="deep-purple accent-4 white--text"
-                column
+              v-model="selection"
+              active-class="deep-purple accent-4 white--text"
+              column
             >
               <v-chip>5:30AM</v-chip>
 
