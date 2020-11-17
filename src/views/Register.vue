@@ -106,7 +106,7 @@
               <v-btn
                 v-if="step === 4"
                 :to="{ name: 'Dashboard-Home' }"
-                color="success"
+                color="#1E3D5"
                 depressed
               >
                 Dashboard
