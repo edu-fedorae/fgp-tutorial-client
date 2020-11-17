@@ -13,7 +13,12 @@
         </v-btn>
       </template>
       <template v-else>
-        <v-btn title="Dashboard" class="ma-2" :to="{name: 'Dashboard-Home'}" outlined>
+        <v-btn
+          title="Dashboard"
+          class="ma-2"
+          :to="{ name: 'Dashboard-Home' }"
+          outlined
+        >
           <v-icon left>mdi-view-dashboard</v-icon>
           Dashboard
         </v-btn>
@@ -30,17 +35,11 @@ import { mapGetters, mapState, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapState('context', [
-      'user'
-    ]),
-    ...mapGetters('context', [
-      'isAuthenticated'
-    ])
+    ...mapState("context", ["user"]),
+    ...mapGetters("context", ["isAuthenticated"])
   },
   methods: {
-    ...mapActions('context', [
-      'logout'
-    ])
+    ...mapActions("context", ["logout"])
   }
-}
+};
 </script>

@@ -19,7 +19,8 @@
 
           <v-list-item-content>
             <v-list-item-title>{{ user.name }}</v-list-item-title>
-            <small>Student</small>
+            <small v-if="user.role === 0">Student</small>
+            <small v-else>Tutor</small>
           </v-list-item-content>
         </v-list-item>
 
@@ -50,7 +51,9 @@
           @click.stop="primaryDrawer.model = !primaryDrawer.model"
         ></v-app-bar-nav-icon>
 
-        <v-btn title="Tutorion Home" :to="{ name: 'Home' }" text>Tutorion</v-btn>
+        <v-btn title="Tutorion Home" :to="{ name: 'Home' }" text
+          >Tutorion</v-btn
+        >
 
         <v-spacer></v-spacer>
 
@@ -108,14 +111,10 @@ export default {
     };
   },
   computed: {
-    ...mapState('context', [
-      'user'
-    ]),
+    ...mapState("context", ["user"])
   },
   methods: {
-    ...mapActions('context', [
-      'logout'
-    ])
+    ...mapActions("context", ["logout"])
   }
 };
 </script>

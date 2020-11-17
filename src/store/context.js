@@ -6,12 +6,18 @@ const store = {
   namespaced: true,
 
   state: {
-    user: {},
+    user: {
+        name: "Jane Doe",
+        email: "jane@tutorion.com",
+        password: "password",
+        role: 1
+      },
     jwtToken: null
   },
 
   getters: {
-    isAuthenticated: state => state.user.name && state.user.email
+    isAuthenticated: state => state.user.name && state.user.email,
+    user: state => state.user
   },
 
   mutations: {
@@ -48,9 +54,9 @@ const store = {
           ? dispatch("loginToken", credentials)
           : dispatch("loginCookies", credentials);
 
-      return loginAction.then(() =>
-          Vue.prototype.startSignalR(state.jwtToken),
-          router.push({name: 'Dashboard-Home'})
+      return loginAction.then(
+        () => Vue.prototype.startSignalR(state.jwtToken),
+        router.push({ name: "Dashboard-Home" })
       );
     },
     loginCookies({ commit }, credentials) {
@@ -76,11 +82,10 @@ const store = {
       return logoutAction.then(() => {
         commit("setUser", {});
         commit("setJwtToken", null);
-        return Vue.prototype.stopSignalR(),
-        router.push({name: 'Home'})
+        return Vue.prototype.stopSignalR(), router.push({ name: "Home" });
       });
     }
   }
-}
+};
 
-export default store
+export default store;

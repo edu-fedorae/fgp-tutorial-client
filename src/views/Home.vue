@@ -34,10 +34,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('context', [
-      'isAuthenticated'
-    ])
-  },
+    ...mapGetters("context", ["isAuthenticated"])
+  }
 };
 </script>
 

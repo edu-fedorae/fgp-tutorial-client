@@ -59,6 +59,11 @@ const routes = [
     ]
   },
   {
+    path: "/test",
+    name: "Test",
+    component: () => import("../views/Test")
+  },
+  {
     path: "*",
     components: Error,
     redirect: "/Error"

@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-card max-height="600">
+        <v-card max-height="600" elevation="12">
           <v-card-text>
             <v-row>
               <v-col cols="12" md="6">
