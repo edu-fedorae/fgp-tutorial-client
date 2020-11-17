@@ -81,7 +81,7 @@
 // import AppDrawer from "@/components/dashboard/AppDrawer";
 // import DashHeader from "@/components/dashboard/DashHeader";
 
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   // components: {
@@ -111,7 +111,9 @@ export default {
     };
   },
   computed: {
-    ...mapState("context", ["user"])
+    ...mapGetters({
+      user: "context/user"
+    })
   },
   methods: {
     ...mapActions("context", ["logout"])

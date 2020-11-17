@@ -129,6 +129,9 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import router from "@/router";
+
 export default {
   data() {
     return {
@@ -145,6 +148,9 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      user: "context/user"
+    }),
     currentTitle() {
       switch (this.step) {
         case 1:
@@ -156,6 +162,11 @@ export default {
         default:
           return "Account created";
       }
+    }
+  },
+  created() {
+    if (this.user) {
+      router.push({ name: 'Home' })
     }
   }
 };
