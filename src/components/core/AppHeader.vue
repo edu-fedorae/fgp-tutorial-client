@@ -25,7 +25,7 @@
           <v-icon left>mdi-login</v-icon>
           Sign Up
         </v-btn>
-        <v-btn class="d-none d-md-none" title="Sign Up" :to="{ name: 'Register' }" icon>
+        <v-btn class="d-none d-md-block" title="Sign Up" :to="{ name: 'Register' }" icon>
           <v-icon>mdi-signup</v-icon>
         </v-btn>
       </template>
