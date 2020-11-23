@@ -148,9 +148,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      user: "context/user"
-    }),
+	...mapGetters(["context"], 
+		"isAuthenticated"
+	),
     currentTitle() {
       switch (this.step) {
         case 1:
@@ -164,11 +164,11 @@ export default {
       }
     }
   },
-  //created() {
-    //if (this.user) {
-      //router.push({ name: 'Home' })
-    //}
-  //}
+  created() {
+    if (!isAuthenticated) {
+      router.push({ name: 'Home' })
+    }
+  }
 };
 </script>
 
