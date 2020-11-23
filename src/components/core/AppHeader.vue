@@ -18,14 +18,14 @@
       <template v-if="!isAuthenticated">
         <v-btn
             title="Register"
-            class="ma-2 d-none d-md-block"
+            class="ma-2 d-none d-md-flex"
             :to="{ name: 'Register' }"
             outlined
         >
           <v-icon left>mdi-login</v-icon>
           Sign Up
         </v-btn>
-        <v-btn class="d-none d-md-none" title="Sign Up" :to="{ name: 'Register' }" icon>
+        <v-btn class="d-md-none" title="Sign Up" :to="{ name: 'Register' }" icon>
           <v-icon>mdi-signup</v-icon>
         </v-btn>
       </template>
