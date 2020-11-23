@@ -129,9 +129,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import router from "@/router";
-
 export default {
   data() {
     return {
@@ -139,7 +136,6 @@ export default {
         name: "",
         email: "",
         password: "",
-        passwordConfirm: "",
         role: this.values
       },
       step: 1,
@@ -148,9 +144,6 @@ export default {
     };
   },
   computed: {
-	...mapGetters(["context"], 
-		"isAuthenticated"
-	),
     currentTitle() {
       switch (this.step) {
         case 1:
@@ -164,11 +157,6 @@ export default {
       }
     }
   },
-  created() {
-    if (!isAuthenticated) {
-      router.push({ name: 'Home' })
-    }
-  }
 };
 </script>
 
