@@ -164,11 +164,11 @@ export default {
       }
     }
   },
-  created() {
-    if (this.user) {
-      router.push({ name: 'Home' })
-    }
-  }
+  //created() {
+    //if (this.user) {
+      //router.push({ name: 'Home' })
+    //}
+  //}
 };
 </script>
 
