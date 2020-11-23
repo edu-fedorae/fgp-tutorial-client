@@ -52,8 +52,8 @@ export default {
   data() {
     return {
       form: {
-        email: "jane@tutorion.com",
-        password: "password"
+        email: "student@tutorion.com",
+        password: "my-super-secret-password"
       },
       authMode: "jwt",
       authOptions: [

@@ -6,12 +6,7 @@ const store = {
   namespaced: true,
 
   state: {
-   user: {
-       name: "Jane Doe",
-       email: "jane@tutorion.com",
-       password: "password",
-       role: 1
-     },
+   user: {},
     jwtToken: null
   },
 
@@ -65,7 +60,7 @@ const store = {
       });
     },
     loginToken({ commit }, credentials) {
-      return axios.post("account/token", credentials).then(res => {
+      return axios.post("account/authenticate", credentials).then(res => {
         const user = res.data;
         const jwtToken = res.data.token;
         delete user.token;
