@@ -51,7 +51,7 @@ const store = {
 
       return loginAction.then(
         () => Vue.prototype.startSignalR(state.jwtToken),
-        router.push({ name: "Dashboard-Home" })
+        state.jwtToken ? router.push({ name: "Dashboard-Home" }) : console.log("Login Failed")
       );
     },
     loginCookies({ commit }, credentials) {
@@ -77,7 +77,7 @@ const store = {
       return logoutAction.then(() => {
         commit("setUser", {});
         commit("setJwtToken", null);
-        return Vue.prototype.stopSignalR(), router.push({ name: "Home" });
+        return !state.jwtToken ? router.push({ name: "Home" }) : console.log("Login Failed")
       });
     }
   }

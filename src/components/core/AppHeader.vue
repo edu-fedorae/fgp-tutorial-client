@@ -25,9 +25,30 @@
           <v-icon left>mdi-login</v-icon>
           Sign Up
         </v-btn>
-        <v-btn class="d-md-none" title="Sign Up" :to="{ name: 'Register' }" icon>
-          <v-icon>mdi-signup</v-icon>
-        </v-btn>
+        <v-menu
+            class="d-md-none"
+            left
+            bottom
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+                icon
+                v-bind="attrs"
+                v-on="on"
+            >
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item
+                :to="{ name: 'Register' }"
+            >
+              <v-list-item-title>Register</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+        
       </template>
       <template v-else>
         <v-btn
