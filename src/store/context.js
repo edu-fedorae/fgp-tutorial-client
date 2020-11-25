@@ -68,6 +68,17 @@ const store = {
         commit("setJwtToken", jwtToken);
       });
     },
+    // Register
+    register({ commit }, user) {
+      return axios.post("account/register", user).then(res => {
+        const user = res.data;
+        const jwtToken = res.data.token;
+        delete user.token;
+        commit("setUser", user);
+        commit("setJwtToken", jwtToken);
+        alert("Registration Successful.")
+      });
+    },
     // Logout. (With JWT the request isnt strictly necessary unless the server needs some cleanup/auditing)
     logout({ commit, state }) {
       const logoutAction = state.jwtToken

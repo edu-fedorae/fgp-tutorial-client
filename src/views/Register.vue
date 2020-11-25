@@ -3,7 +3,7 @@
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="4">
         <!--    For when it's time to submit    -->
-        <v-form>
+        <v-form @submit.prevent="onSubmit">
           <v-card class="mx-auto elevation-12" max-width="500">
             <v-card-title
               class="title font-weight-regular justify-space-between"
@@ -52,12 +52,12 @@
                     type="password"
                     prepend-icon="mdi-lock"
                   ></v-text-field>
-                  <v-text-field
-                    v-model="form.passwordConfirm"
-                    label="Confirm Password"
-                    type="password"
-                    prepend-icon="mdi-lock-outline"
-                  ></v-text-field>
+<!--                  <v-text-field-->
+<!--                    v-model="form.passwordConfirm"-->
+<!--                    label="Confirm Password"-->
+<!--                    type="password"-->
+<!--                    prepend-icon="mdi-lock-outline"-->
+<!--                  ></v-text-field>-->
                   <span class="caption grey--text text--darken-1">
                     Please enter a password for your account
                   </span>
@@ -66,17 +66,30 @@
 
               <v-window-item :value="3">
                 <v-card-text>
-                  <v-autocomplete
-                    v-model="values"
-                    :items="types"
-                    dense
-                    filled
-                    prepend-icon="mdi-account-multiple"
-                    label="Tutor or Student"
-                  ></v-autocomplete>
-                  <span class="caption grey--text text--darken-1">
-                    Please select your role
-                  </span>
+                  <v-radio-group
+                      v-model="form.role"
+                      mandatory
+                  >
+                    <v-radio
+                        label="Student"
+                        :value="number[0]"
+                    ></v-radio>
+                    <v-radio
+                        label="Tutor"
+                        :value="number[1]"
+                    ></v-radio>
+                  </v-radio-group>
+<!--                  <v-autocomplete-->
+<!--                    v-model="form.role"-->
+<!--                    :items="userRole"-->
+<!--                    dense-->
+<!--                    filled-->
+<!--                    prepend-icon="mdi-account-multiple"-->
+<!--                    label="Tutor or Student"-->
+<!--                  ></v-autocomplete>-->
+<!--                  <span class="caption grey&#45;&#45;text text&#45;&#45;darken-1">-->
+<!--                    Please select your role-->
+<!--                  </span>-->
                 </v-card-text>
               </v-window-item>
 
@@ -90,6 +103,9 @@
                   ></v-img>
                   <h3 class="title font-weight-light mb-2">
                     Welcome to Tutorion
+                    <p>
+                      You can now Login.
+                    </p>
                   </h3>
                   <span class="caption grey--text">Thanks for signing up!</span>
                 </div>
@@ -104,12 +120,20 @@
               </v-btn>
               <v-spacer></v-spacer>
               <v-btn
+                  v-if="step === 3"
+                  type="submit"
+                  color="#1E3D5"
+                  depressed
+              >
+                Create
+              </v-btn>
+              <v-btn
                 v-if="step === 4"
-                :to="{ name: 'Dashboard-Home' }"
+                :to="{ name: 'Home' }"
                 color="#1E3D5"
                 depressed
               >
-                Dashboard
+                Sign-In
               </v-btn>
               <v-btn
                 v-else
@@ -129,6 +153,8 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+
 export default {
   data() {
     return {
@@ -136,11 +162,14 @@ export default {
         name: "",
         email: "",
         password: "",
-        role: this.values
+        role: 0
       },
+      number: [0, 1],
       step: 1,
-      types: ["Student", "Tutor"],
-      values: [0, 1]
+      // userRole: [
+      //     { type: "Student", value: 0, },
+      //     { type: "Tutor", value: 1, }
+      //     ]
     };
   },
   computed: {
@@ -157,6 +186,16 @@ export default {
       }
     }
   },
+  methods: {
+    ...mapActions("context", ["register"]),
+    onSubmit() {
+      this.register({user : this.form }).then(
+          () => {
+            this.step++
+          }
+      );
+    }
+  }
 };
 </script>
 
