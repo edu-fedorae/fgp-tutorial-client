@@ -178,13 +178,13 @@
               v-model="input"
               hide-details
               flat
-              label="Leave a comment..."
+              label="Leave a review..."
               solo
-              @keydown.enter="comment"
+              @keydown.enter="review"
           >
             <template v-slot:append>
-              <v-btn class="mx-0" depressed @click="comment">
-                Post
+              <v-btn class="mx-0" depressed outlined @click="review">
+                Submit
               </v-btn>
             </template>
           </v-text-field>
@@ -427,7 +427,7 @@ export default {
   },
 
   methods: {
-    comment() {
+    review() {
       const time = new Date().toTimeString();
       this.events.push({
         id: this.nonce++,
