@@ -182,7 +182,7 @@ export default {
     return {
       value: [200, 675, 410, 390, 310, 460, 250, 240]
     };
-  },
+  }
 };
 </script>
 

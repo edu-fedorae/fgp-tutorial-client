@@ -3,7 +3,6 @@
     <v-row v-if="user.role != 0">
       <v-col>
         <v-card class="mt-2 mx-auto" elevation="12">
-
           <v-card-text class="pt-0">
             <v-toolbar flat color="">
               <v-icon>mdi-account</v-icon>
@@ -13,24 +12,18 @@
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-card-text>
-              <v-text-field
-                  label="Title"
-              ></v-text-field>
+              <v-text-field label="Title"></v-text-field>
 
-              <v-text-field
-                  label="Description"
-              ></v-text-field>
+              <v-text-field label="Description"></v-text-field>
 
-              <v-text-field
-                  label="Session URL"
-              ></v-text-field>
+              <v-text-field label="Session URL"></v-text-field>
 
               Create Session (optional):
               <v-btn class="ma-1" block>Google Meet</v-btn>
               <v-btn class="ma-1 deep-purple white--text" block>Discord</v-btn>
               <v-btn class="ma-1" block>Aeorion - Blackboard</v-btn>
 
-              <br>
+              <br />
 
               <v-divider></v-divider>
 
@@ -44,7 +37,6 @@
                   <v-date-picker></v-date-picker>
                 </v-col>
               </v-row>
-
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
@@ -58,7 +50,6 @@
             </v-snackbar>
           </v-card-text>
         </v-card>
-
       </v-col>
     </v-row>
 
@@ -67,8 +58,8 @@
       <v-col v-for="(i, n) in 4" :key="i" class="d-inline">
         <v-card max-width="344" elevation="12">
           <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              height="200px"
+            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            height="200px"
           ></v-img>
 
           <v-card-title>
@@ -79,8 +70,8 @@
 
           <v-card-actions>
             <v-btn
-                color="orange lighten-2"
-                :to="{ path: `/dashboard/tutorials/${n}` }"
+              color="orange lighten-2"
+              :to="{ path: `/dashboard/tutorials/${n}` }"
             >
               Join
             </v-btn>
@@ -89,8 +80,8 @@
 
             <v-btn icon @click="show = !show">
               <v-icon>{{
-                  show ? "mdi-chevron-up" : "mdi-chevron-down"
-                }}</v-icon>
+                show ? "mdi-chevron-up" : "mdi-chevron-down"
+              }}</v-icon>
             </v-btn>
           </v-card-actions>
 
@@ -115,7 +106,7 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -139,7 +130,7 @@ export default {
       const searchText = queryText.toLowerCase();
 
       return (
-          textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
+        textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
       );
     },
     save() {

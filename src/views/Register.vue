@@ -52,12 +52,12 @@
                     type="password"
                     prepend-icon="mdi-lock"
                   ></v-text-field>
-<!--                  <v-text-field-->
-<!--                    v-model="form.passwordConfirm"-->
-<!--                    label="Confirm Password"-->
-<!--                    type="password"-->
-<!--                    prepend-icon="mdi-lock-outline"-->
-<!--                  ></v-text-field>-->
+                  <!--                  <v-text-field-->
+                  <!--                    v-model="form.passwordConfirm"-->
+                  <!--                    label="Confirm Password"-->
+                  <!--                    type="password"-->
+                  <!--                    prepend-icon="mdi-lock-outline"-->
+                  <!--                  ></v-text-field>-->
                   <span class="caption grey--text text--darken-1">
                     Please enter a password for your account
                   </span>
@@ -66,30 +66,21 @@
 
               <v-window-item :value="3">
                 <v-card-text>
-                  <v-radio-group
-                      v-model="form.role"
-                      mandatory
-                  >
-                    <v-radio
-                        label="Student"
-                        :value="number[0]"
-                    ></v-radio>
-                    <v-radio
-                        label="Tutor"
-                        :value="number[1]"
-                    ></v-radio>
+                  <v-radio-group v-model="form.role" mandatory>
+                    <v-radio label="Student" :value="number[0]"></v-radio>
+                    <v-radio label="Tutor" :value="number[1]"></v-radio>
                   </v-radio-group>
-<!--                  <v-autocomplete-->
-<!--                    v-model="form.role"-->
-<!--                    :items="userRole"-->
-<!--                    dense-->
-<!--                    filled-->
-<!--                    prepend-icon="mdi-account-multiple"-->
-<!--                    label="Tutor or Student"-->
-<!--                  ></v-autocomplete>-->
-<!--                  <span class="caption grey&#45;&#45;text text&#45;&#45;darken-1">-->
-<!--                    Please select your role-->
-<!--                  </span>-->
+                  <!--                  <v-autocomplete-->
+                  <!--                    v-model="form.role"-->
+                  <!--                    :items="userRole"-->
+                  <!--                    dense-->
+                  <!--                    filled-->
+                  <!--                    prepend-icon="mdi-account-multiple"-->
+                  <!--                    label="Tutor or Student"-->
+                  <!--                  ></v-autocomplete>-->
+                  <!--                  <span class="caption grey&#45;&#45;text text&#45;&#45;darken-1">-->
+                  <!--                    Please select your role-->
+                  <!--                  </span>-->
                 </v-card-text>
               </v-window-item>
 
@@ -119,12 +110,7 @@
                 Back
               </v-btn>
               <v-spacer></v-spacer>
-              <v-btn
-                  v-if="step === 3"
-                  type="submit"
-                  color="#1E3D5"
-                  depressed
-              >
+              <v-btn v-if="step === 3" type="submit" color="#1E3D5" depressed>
                 Create
               </v-btn>
               <v-btn
@@ -153,7 +139,7 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -165,7 +151,7 @@ export default {
         role: 0
       },
       number: [0, 1],
-      step: 1,
+      step: 1
       // userRole: [
       //     { type: "Student", value: 0, },
       //     { type: "Tutor", value: 1, }
@@ -189,11 +175,9 @@ export default {
   methods: {
     ...mapActions("context", ["register"]),
     onSubmit() {
-      this.register({user : this.form }).then(
-          () => {
-            this.step++
-          }
-      );
+      this.register({ user: this.form }).then(() => {
+        this.step++;
+      });
     }
   }
 };

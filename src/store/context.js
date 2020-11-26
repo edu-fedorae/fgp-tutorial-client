@@ -6,7 +6,12 @@ const store = {
   namespaced: true,
 
   state: {
-   user: {},
+    user: {
+      name: "Jane Doe",
+      email: "jane@tutorion.com",
+      role: 0,
+      password: "password"
+    },
     jwtToken: null
   },
 
@@ -51,7 +56,9 @@ const store = {
 
       return loginAction.then(
         () => Vue.prototype.startSignalR(state.jwtToken),
-        state.jwtToken ? router.push({ name: "Dashboard-Home" }) : console.log("Login Failed")
+        state.jwtToken
+          ? router.push({ name: "Dashboard-Home" })
+          : console.log("Login Failed")
       );
     },
     loginCookies({ commit }, credentials) {
@@ -76,7 +83,7 @@ const store = {
         delete user.token;
         commit("setUser", user);
         commit("setJwtToken", jwtToken);
-        alert("Registration Successful.")
+        alert("Registration Successful.");
       });
     },
     // Logout. (With JWT the request isnt strictly necessary unless the server needs some cleanup/auditing)
@@ -88,7 +95,9 @@ const store = {
       return logoutAction.then(() => {
         commit("setUser", {});
         commit("setJwtToken", null);
-        return !state.jwtToken ? router.push({ name: "Home" }) : console.log("Login Failed")
+        return !state.jwtToken
+          ? router.push({ name: "Home" })
+          : console.log("Login Failed");
       });
     }
   }

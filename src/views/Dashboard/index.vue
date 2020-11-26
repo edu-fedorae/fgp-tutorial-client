@@ -19,8 +19,8 @@
 
           <v-list-item-content>
             <v-list-item-title>{{ user.name }}</v-list-item-title>
-            <small v-if="user.role === 0">Student</small>
-            <small v-else>Tutor</small>
+            <small v-if="user.role === 1">Tutor</small>
+            <small v-else>Student</small>
           </v-list-item-content>
         </v-list-item>
 
