@@ -73,7 +73,7 @@
               color="orange lighten-2"
               :to="{ path: `/dashboard/tutorials/${n}` }"
             >
-              Join
+              View
             </v-btn>
 
             <v-spacer></v-spacer>

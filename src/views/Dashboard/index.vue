@@ -70,7 +70,7 @@
         </v-btn>
       </v-app-bar>
 
-      <v-main>
+      <v-main class="mt-0 pt-0">
         <router-view></router-view>
       </v-main>
     </v-app>
