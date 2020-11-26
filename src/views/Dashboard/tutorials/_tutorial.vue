@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container style="max-width: 850px;">
     <h1>Tutorial Session</h1>
     <v-card
         class="mx-auto overflow-hidden"
