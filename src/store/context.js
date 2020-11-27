@@ -7,10 +7,10 @@ const store = {
 
   state: {
     user: {
-      name: "Jane Doe",
-      email: "jane@tutorion.com",
-      role: 0,
-      password: "password"
+      // name: "Jane Doe",
+      // email: "jane@tutorion.com",
+      // role: 0,
+      // password: "password"
     },
     jwtToken: null
   },
@@ -73,11 +73,12 @@ const store = {
         delete user.token;
         commit("setUser", user);
         commit("setJwtToken", jwtToken);
+        router.push({ name: "Dashboard-Home" });
       });
     },
     // Register
     register({ commit }, user) {
-      return axios.post("account/register", user).then(res => {
+      return axios.post("account/register", user.user).then(res => {
         const user = res.data;
         const jwtToken = res.data.token;
         delete user.token;

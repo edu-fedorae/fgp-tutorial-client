@@ -10,11 +10,19 @@
 import AppHeader from "@/components/core/AppHeader";
 import AppFooter from "@/components/core/AppFooter";
 
+import { mapActions } from "vuex";
+
 export default {
   name: "App",
   components: {
     AppHeader,
     AppFooter
+  },
+  methods: {
+    ...mapActions("tutorials", ["getTutorials"])
+  },
+  created() {
+    this.getTutorials()
   }
 };
 </script>

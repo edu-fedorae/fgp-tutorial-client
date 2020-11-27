@@ -110,23 +110,29 @@
                 Back
               </v-btn>
               <v-spacer></v-spacer>
-              <v-btn v-if="step === 3" type="submit" color="#1E3D5" depressed>
+              <v-btn 
+                  v-show="step === 3" 
+                 type="submit" 
+                 color="#1E3D58" 
+                 depressed
+                 style="color: #ffffff"
+              >
                 Create
               </v-btn>
               <v-btn
-                v-if="step === 4"
+                v-show="step === 4"
                 :to="{ name: 'Home' }"
-                color="#1E3D5"
+                color="#1E3D58"
                 depressed
               >
                 Sign-In
               </v-btn>
               <v-btn
-                v-else
-                color="#1E3D58"
-                style="color: #ffffff"
-                depressed
-                @click="step++"
+                  v-show="step !== 3 && step <= 3"
+                  color="#1E3D58"
+                  depressed
+                  style="color: #ffffff"
+                  @click="step++"
               >
                 Next
               </v-btn>
