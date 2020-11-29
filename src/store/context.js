@@ -7,10 +7,10 @@ const store = {
 
   state: {
     user: {
-      // name: "Jane Doe",
-      // email: "jane@tutorion.com",
-      // role: 0,
-      // password: "password"
+      name: "Jane Doe",
+      email: "jane@tutorion.com",
+      role: 0,
+      password: "password"
     },
     jwtToken: null
   },
