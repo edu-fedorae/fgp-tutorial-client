@@ -137,6 +137,9 @@ export default {
       this.isEditing = !this.isEditing;
       this.hasSaved = true;
     }
+  },
+  mounted () {
+    window.scrollTo(0, 0)
   }
 };
 </script>

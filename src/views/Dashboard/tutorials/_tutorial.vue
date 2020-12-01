@@ -451,6 +451,9 @@ export default {
       document.execCommand('selectAll', false, null)
       this.copied = document.execCommand('copy')
     },
+  },
+  mounted () {
+    window.scrollTo(0, 0)
   }
 };
 </script>

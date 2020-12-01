@@ -185,6 +185,9 @@ export default {
         this.step++;
       });
     }
+  },
+  mounted () {
+    window.scrollTo(0, 0)
   }
 };
 </script>

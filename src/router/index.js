@@ -50,8 +50,15 @@ const routes = [
         path: "/dashboard/tutorials",
         name: "Dashboard-Tutorials",
         component: () => import("../views/Dashboard/tutorials/index.vue")
-      },
-      {
+      }, {
+        path: "/dashboard/chat",
+        name: "Dashboard-Chat",
+        component: () => import("../views/Dashboard/chat/index.vue")
+      },{
+        path: "/dashboard/chat/inbox",
+        name: "Dashboard-Chat-Inbox",
+        component: () => import("../views/Dashboard/chat/inbox.vue")
+      }, {
         path: "/dashboard/tutorials/:tutorial",
         name: "Dashboard-Tutorial",
         component: () => import("../views/Dashboard/tutorials/_tutorial")

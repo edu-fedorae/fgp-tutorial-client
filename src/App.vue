@@ -23,6 +23,9 @@ export default {
   },
   created() {
     this.getTutorials()
+  },
+  mounted () {
+    window.scrollTo(0, 0)
   }
 };
 </script>

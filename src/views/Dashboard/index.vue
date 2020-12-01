@@ -106,6 +106,7 @@ export default {
           icon: "mdi-bookmark",
           src: "/dashboard/tutorials"
         },
+        { title: "Chat", icon: "mdi-chat", src: "/dashboard/chat" },
         { title: "Settings", icon: "mdi-cog", src: "/dashboard/settings" }
       ]
     };
@@ -117,6 +118,9 @@ export default {
   },
   methods: {
     ...mapActions("context", ["logout"])
+  },
+  mounted () {
+    window.scrollTo(0, 0)
   }
 };
 </script>
