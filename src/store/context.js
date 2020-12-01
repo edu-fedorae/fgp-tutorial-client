@@ -9,7 +9,7 @@ const store = {
     user: {
       name: "Jane Doe",
       email: "jane@tutorion.com",
-      role: 1,
+      role: 0,
       password: "password"
     },
     jwtToken: null
