@@ -64,6 +64,45 @@ const routes = [
         component: () => import("../views/Dashboard/tutorials/_tutorial")
       }
     ]
+  },{
+    path: "/admin/dashboard",
+    name: "Admin-Dashboard",
+    component: () => import("../views/Admin/Dashboard/index.vue"),
+
+    children: [
+      {
+        path: "/admin/dashboard/home",
+        name: "Admin-Dashboard-Home",
+        component: () => import("../views/Admin/Dashboard/home.vue")
+      },
+      {
+        path: "/admin/dashboard/profile",
+        name: "Admin-Dashboard-Profile",
+        component: () => import("../views/Admin/Dashboard/profile.vue")
+      },
+      {
+        path: "/admin/dashboard/settings",
+        name: "Admin-Dashboard-Settings",
+        component: () => import("../views/Admin/Dashboard/settings.vue")
+      },
+      {
+        path: "/admin/dashboard/tutorials",
+        name: "Admin-Dashboard-Tutorials",
+        component: () => import("../views/Admin/Dashboard/tutorials/index.vue")
+      }, {
+        path: "/admin/dashboard/chat",
+        name: "Admin-Dashboard-Chat",
+        component: () => import("../views/Admin/Dashboard/chat/index.vue")
+      },{
+        path: "/admin/dashboard/chat/inbox",
+        name: "Admin-Dashboard-Chat-Inbox",
+        component: () => import("../views/Admin/Dashboard/chat/inbox.vue")
+      }, {
+        path: "/admin/dashboard/tutorials/:tutorial",
+        name: "Admin-Dashboard-Tutorial",
+        component: () => import("../views/Admin/Dashboard/tutorials/_tutorial")
+      }
+    ]
   },
   {
     path: "/test",
