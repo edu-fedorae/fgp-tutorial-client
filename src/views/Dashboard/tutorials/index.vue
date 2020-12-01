@@ -2,6 +2,7 @@
   <v-container>
     <v-row v-if="user.role != 0">
       <v-col>
+        <v-form @submit.prevent="create">
         <v-card class="mt-2 mx-auto" elevation="12">
           <v-card-text class="pt-0">
             <v-toolbar flat color="">
@@ -12,16 +13,16 @@
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-card-text>
-              <v-text-field label="Title"></v-text-field>
+              <v-text-field label="Title" v-model="form.title"></v-text-field>
 
-              <v-text-field label="Description"></v-text-field>
+              <v-text-field label="Description" v-model="form.description"></v-text-field>
 
-              <v-text-field label="Session URL"></v-text-field>
+              <v-text-field label="Session URL" v-model="form.sessionUrl"></v-text-field>
 
               Create Session (optional):
-              <v-btn class="ma-1" block>Google Meet</v-btn>
-              <v-btn class="ma-1 deep-purple white--text" block>Discord</v-btn>
-              <v-btn class="ma-1" block>Aeorion - Blackboard</v-btn>
+              <a href="https://meet.google.com" target="_blank"><v-btn class="ma-1" block>Google Meet</v-btn></a>
+              <a href="https://discord.com" target="_blank"><v-btn class="ma-1 deep-purple white--text" block>Discord</v-btn></a>
+              <a href="https://ncu.edu.jm" target="_blank"><v-btn class="ma-1" block>Aeorion - Blackboard</v-btn></a>
 
               <br />
 
@@ -30,18 +31,18 @@
               <v-row>
                 <v-col>
                   Start Date & Time:
-                  <v-date-picker></v-date-picker>
+                  <v-date-picker v-model="form.startAt"></v-date-picker>
                 </v-col>
                 <v-col>
                   End Date & Time:
-                  <v-date-picker></v-date-picker>
+                  <v-date-picker v-model="form.endAt"></v-date-picker>
                 </v-col>
               </v-row>
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="#1E3D58" style="color: #ffffff" @click="save">
+              <v-btn type="submit" color="#1E3D58" style="color: #ffffff">
                 Create
               </v-btn>
             </v-card-actions>
@@ -50,12 +51,13 @@
             </v-snackbar>
           </v-card-text>
         </v-card>
+        </v-form>
       </v-col>
     </v-row>
 
     <h1>Active Tutorials</h1>
     <v-row dense>
-      <v-col v-for="(i, n) in 4" :key="i" class="d-inline">
+      <v-col v-for="(i, tutorial) in tutorials" :key="i" class="d-inline">
         <v-card max-width="344" elevation="12">
           <v-img
             src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -63,17 +65,25 @@
           ></v-img>
 
           <v-card-title>
-            Top western road trips
+            {{ tutorials[i].title }}
           </v-card-title>
 
-          <v-card-subtitle> 1,000 miles of wonder {{ n }} </v-card-subtitle>
+          <v-card-subtitle> by {{ tutorials[i].userId}}  </v-card-subtitle>
 
           <v-card-actions>
             <v-btn
               color="orange lighten-2"
-              :to="{ path: `/dashboard/tutorials/${n}` }"
+              :to="{ path: `/dashboard/tutorials/${tutorials[i].id}` }"
             >
               View
+            </v-btn>
+
+            <v-btn
+                color="blue lighten-2"
+                v-if="user.role == 1"
+                :to="{ path: `/dashboard/tutorials/${tutorials[i].id}/edit` }"
+            >
+              Edit
             </v-btn>
 
             <v-spacer></v-spacer>
@@ -90,12 +100,7 @@
               <v-divider></v-divider>
 
               <v-card-text>
-                I'm a thing. But, like most politicians, he promised more than
-                he could deliver. You won't have time for sleeping, soldier, not
-                with all the bed making you'll be doing. Then we'll go with that
-                data file! Hey, you add a one and two zeros to that or we walk!
-                You're going to do his laundry? I've got to find a way to
-                escape.
+                {{ tutorial.description }}
               </v-card-text>
             </div>
           </v-expand-transition>
@@ -107,6 +112,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import axios from "axios";
 
 export default {
   data() {
@@ -115,7 +121,15 @@ export default {
       hasSaved: false,
       isEditing: null,
       model: null,
-      value: [200, 675, 410, 390, 310, 460, 250, 240]
+      value: [200, 675, 410, 390, 310, 460, 250, 240],
+      form: {
+        title: "",
+        description: "",
+        sessionUrl: "",
+        startAt: "",
+        endAt: "",
+      },
+      tutorials: []
     };
   },
   computed: {
@@ -136,10 +150,21 @@ export default {
     save() {
       this.isEditing = !this.isEditing;
       this.hasSaved = true;
+    },
+    create() {
+      axios.post("tutorial", this.form).then(
+          () => {
+            alert("Tutorial Create Successfully")
+          }
+      )
     }
   },
   mounted () {
     window.scrollTo(0, 0)
-  }
+    axios.get("tutorial").then(res => {
+      this.tutorials = res.data
+      console.log("Tutorials Received Successful.");
+    });
+  },
 };
 </script>

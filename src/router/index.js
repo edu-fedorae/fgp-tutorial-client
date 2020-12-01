@@ -61,7 +61,11 @@ const routes = [
       }, {
         path: "/dashboard/tutorials/:tutorial",
         name: "Dashboard-Tutorial",
-        component: () => import("../views/Dashboard/tutorials/_tutorial")
+        component: () => import("../views/Dashboard/tutorials/_tutorial/index")
+      }, {
+        path: "/dashboard/tutorials/:tutorial/edit",
+        name: "Dashboard-Tutorial-Edit",
+        component: () => import("../views/Dashboard/tutorials/_tutorial/edit")
       }
     ]
   },{
