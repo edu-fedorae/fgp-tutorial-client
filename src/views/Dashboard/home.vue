@@ -183,8 +183,8 @@ export default {
       value: [200, 675, 410, 390, 310, 460, 250, 240]
     };
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>

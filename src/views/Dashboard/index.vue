@@ -82,6 +82,7 @@
 // import DashHeader from "@/components/dashboard/DashHeader";
 
 import { mapGetters, mapActions } from "vuex";
+import router from "@/router";
 
 export default {
   // components: {
@@ -119,8 +120,13 @@ export default {
   methods: {
     ...mapActions("context", ["logout"])
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
+    if (!localStorage.getItem("jwtToken")) {
+      return router.push({ name: "Home" });
+    } else {
+      return router.push({ name: "Dashboard-Home"})
+    }
   }
 };
 </script>

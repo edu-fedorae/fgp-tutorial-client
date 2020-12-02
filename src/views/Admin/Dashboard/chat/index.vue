@@ -1,15 +1,9 @@
 <template>
   <v-container>
-    <v-card
-        class="mx-auto"
-        max-width="500"
-    >
+    <v-card class="mx-auto" max-width="500">
       <v-list>
         <v-list-item-group v-model="model">
-          <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
-          >
+          <v-list-item v-for="(item, i) in items" :key="i">
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
@@ -25,36 +19,34 @@
 
 <script>
 export default {
-name: "index",
+  name: "index",
   data() {
     return {
       items: [
         {
-          icon: 'mdi-inbox',
-          text: 'Inbox',
+          icon: "mdi-inbox",
+          text: "Inbox"
         },
         {
-          icon: 'mdi-star',
-          text: 'Star',
+          icon: "mdi-star",
+          text: "Star"
         },
         {
-          icon: 'mdi-send',
-          text: 'Send',
+          icon: "mdi-send",
+          text: "Send"
         },
         {
-          icon: 'mdi-email-open',
-          text: 'Drafts',
-        },
+          icon: "mdi-email-open",
+          text: "Drafts"
+        }
       ],
-      model: 1,
-    }
+      model: 1
+    };
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

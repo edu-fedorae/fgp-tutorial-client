@@ -110,12 +110,12 @@
                 Back
               </v-btn>
               <v-spacer></v-spacer>
-              <v-btn 
-                  v-show="step === 3" 
-                 type="submit" 
-                 color="#1E3D58" 
-                 depressed
-                 style="color: #ffffff"
+              <v-btn
+                v-show="step === 3"
+                type="submit"
+                color="#1E3D58"
+                depressed
+                style="color: #ffffff"
               >
                 Create
               </v-btn>
@@ -128,11 +128,11 @@
                 Sign-In
               </v-btn>
               <v-btn
-                  v-show="step !== 3 && step <= 3"
-                  color="#1E3D58"
-                  depressed
-                  style="color: #ffffff"
-                  @click="step++"
+                v-show="step !== 3 && step <= 3"
+                color="#1E3D58"
+                depressed
+                style="color: #ffffff"
+                @click="step++"
               >
                 Next
               </v-btn>
@@ -186,8 +186,8 @@ export default {
       });
     }
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>

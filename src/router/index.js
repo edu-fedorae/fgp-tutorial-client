@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Error from "../views/Error.vue";
+import auth from "../middleware/auth.js";
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,9 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import("../views/Dashboard/index.vue"),
+    meta: {
+      middleware: auth
+    },
 
     children: [
       {
@@ -50,25 +54,30 @@ const routes = [
         path: "/dashboard/tutorials",
         name: "Dashboard-Tutorials",
         component: () => import("../views/Dashboard/tutorials/index.vue")
-      }, {
+      },
+      {
         path: "/dashboard/chat",
         name: "Dashboard-Chat",
         component: () => import("../views/Dashboard/chat/index.vue")
-      },{
+      },
+      {
         path: "/dashboard/chat/inbox",
         name: "Dashboard-Chat-Inbox",
         component: () => import("../views/Dashboard/chat/inbox.vue")
-      }, {
+      },
+      {
         path: "/dashboard/tutorials/:tutorial",
         name: "Dashboard-Tutorial",
         component: () => import("../views/Dashboard/tutorials/_tutorial/index")
-      }, {
+      },
+      {
         path: "/dashboard/tutorials/:tutorial/edit",
         name: "Dashboard-Tutorial-Edit",
         component: () => import("../views/Dashboard/tutorials/_tutorial/edit")
       }
     ]
-  },{
+  },
+  {
     path: "/admin/dashboard",
     name: "Admin-Dashboard",
     component: () => import("../views/Admin/Dashboard/index.vue"),
@@ -93,15 +102,18 @@ const routes = [
         path: "/admin/dashboard/tutorials",
         name: "Admin-Dashboard-Tutorials",
         component: () => import("../views/Admin/Dashboard/tutorials/index.vue")
-      }, {
+      },
+      {
         path: "/admin/dashboard/chat",
         name: "Admin-Dashboard-Chat",
         component: () => import("../views/Admin/Dashboard/chat/index.vue")
-      },{
+      },
+      {
         path: "/admin/dashboard/chat/inbox",
         name: "Admin-Dashboard-Chat-Inbox",
         component: () => import("../views/Admin/Dashboard/chat/inbox.vue")
-      }, {
+      },
+      {
         path: "/admin/dashboard/tutorials/:tutorial",
         name: "Admin-Dashboard-Tutorial",
         component: () => import("../views/Admin/Dashboard/tutorials/_tutorial")

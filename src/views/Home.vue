@@ -36,8 +36,8 @@ export default {
   computed: {
     ...mapGetters("context", ["isAuthenticated"])
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>

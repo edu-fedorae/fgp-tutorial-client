@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    tutorials: {},
+    tutorials: {}
   },
 
   getters: {
@@ -19,7 +19,7 @@ export default new Vuex.Store({
   mutations: {
     setTutorials(state, tutorials) {
       state.tutorials = tutorials;
-    },
+    }
   },
 
   actions: {
@@ -30,11 +30,11 @@ export default new Vuex.Store({
         commit("setTutorial", data);
         console.log("Tutorials Received Successful.");
       });
-    },
+    }
   },
 
   modules: {
     context,
-    reviews,
+    reviews
   }
 });

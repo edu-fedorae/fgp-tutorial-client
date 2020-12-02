@@ -3,54 +3,74 @@
     <v-row v-if="user.role != 0">
       <v-col>
         <v-form @submit.prevent="create">
-        <v-card class="mt-2 mx-auto" elevation="12">
-          <v-card-text class="pt-0">
-            <v-toolbar flat color="">
-              <v-icon>mdi-account</v-icon>
-              <v-toolbar-title class="font-weight-bold">
-                Create Tutorial
-              </v-toolbar-title>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-            <v-card-text>
-              <v-text-field label="Title" v-model="form.title"></v-text-field>
+          <v-card class="mt-2 mx-auto" elevation="12">
+            <v-card-text class="pt-0">
+              <v-toolbar flat color="">
+                <v-icon>mdi-account</v-icon>
+                <v-toolbar-title class="font-weight-bold">
+                  Create Tutorial
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
+              </v-toolbar>
+              <v-card-text>
+                <v-text-field label="Title" v-model="form.title"></v-text-field>
 
-              <v-text-field label="Description" v-model="form.description"></v-text-field>
+                <v-text-field
+                  label="Description"
+                  v-model="form.description"
+                ></v-text-field>
 
-              <v-text-field label="Session URL" v-model="form.sessionUrl"></v-text-field>
+                <v-text-field
+                  label="Session URL"
+                  v-model="form.sessionUrl"
+                ></v-text-field>
 
-              Create Session (optional):
-              <a href="https://meet.google.com" target="_blank"><v-btn class="ma-1" block>Google Meet</v-btn></a>
-              <a href="https://discord.com" target="_blank"><v-btn class="ma-1 deep-purple white--text" block>Discord</v-btn></a>
-              <a href="https://ncu.edu.jm" target="_blank"><v-btn class="ma-1" block>Aeorion - Blackboard</v-btn></a>
+                Create Session (optional):
+                <a href="https://meet.google.com" target="_blank"
+                  ><v-btn class="ma-1" block>Google Meet</v-btn></a
+                >
+                <a href="https://discord.com" target="_blank"
+                  ><v-btn class="ma-1 deep-purple white--text" block
+                    >Discord</v-btn
+                  ></a
+                >
+                <a href="https://ncu.edu.jm" target="_blank"
+                  ><v-btn class="ma-1" block>Aeorion - Blackboard</v-btn></a
+                >
 
-              <br />
+                <br />
 
+                <v-divider></v-divider>
+
+                <v-row>
+                  <v-col>
+                    Start Date & Time:
+                    <v-date-picker v-model="form.startAt"></v-date-picker>
+                  </v-col>
+                  <v-col>
+                    End Date & Time:
+                    <v-date-picker v-model="form.endAt"></v-date-picker>
+                  </v-col>
+                </v-row>
+              </v-card-text>
               <v-divider></v-divider>
-
-              <v-row>
-                <v-col>
-                  Start Date & Time:
-                  <v-date-picker v-model="form.startAt"></v-date-picker>
-                </v-col>
-                <v-col>
-                  End Date & Time:
-                  <v-date-picker v-model="form.endAt"></v-date-picker>
-                </v-col>
-              </v-row>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn type="submit" color="#1E3D58" style="color: #ffffff">
+                  Create
+                </v-btn>
+              </v-card-actions>
+              <v-snackbar
+                v-model="hasSaved"
+                :timeout="2000"
+                absolute
+                bottom
+                left
+              >
+                Your new tutorial has been created
+              </v-snackbar>
             </v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn type="submit" color="#1E3D58" style="color: #ffffff">
-                Create
-              </v-btn>
-            </v-card-actions>
-            <v-snackbar v-model="hasSaved" :timeout="2000" absolute bottom left>
-              Your new tutorial has been created
-            </v-snackbar>
-          </v-card-text>
-        </v-card>
+          </v-card>
         </v-form>
       </v-col>
     </v-row>
@@ -68,7 +88,7 @@
             {{ tutorials[i].title }}
           </v-card-title>
 
-          <v-card-subtitle> by {{ tutorials[i].userId}}  </v-card-subtitle>
+          <v-card-subtitle> by {{ tutorials[i].userId }} </v-card-subtitle>
 
           <v-card-actions>
             <v-btn
@@ -79,9 +99,9 @@
             </v-btn>
 
             <v-btn
-                color="blue lighten-2"
-                v-if="user.role == 1"
-                :to="{ path: `/dashboard/tutorials/${tutorials[i].id}/edit` }"
+              color="blue lighten-2"
+              v-if="user.role == 1"
+              :to="{ path: `/dashboard/tutorials/${tutorials[i].id}/edit` }"
             >
               Edit
             </v-btn>
@@ -127,7 +147,7 @@ export default {
         description: "",
         sessionUrl: "",
         startAt: "",
-        endAt: "",
+        endAt: ""
       },
       tutorials: []
     };
@@ -152,19 +172,17 @@ export default {
       this.hasSaved = true;
     },
     create() {
-      axios.post("tutorial", this.form).then(
-          () => {
-            alert("Tutorial Create Successfully")
-          }
-      )
+      axios.post("tutorial", this.form).then(() => {
+        alert("Tutorial Create Successfully");
+      });
     }
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
     axios.get("tutorial").then(res => {
-      this.tutorials = res.data
+      this.tutorials = res.data;
       console.log("Tutorials Received Successful.");
     });
-  },
+  }
 };
 </script>

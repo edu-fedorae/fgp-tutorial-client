@@ -119,8 +119,8 @@ export default {
   methods: {
     ...mapActions("context", ["logout"])
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>

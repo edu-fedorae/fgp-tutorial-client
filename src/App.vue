@@ -22,10 +22,10 @@ export default {
     ...mapActions("tutorials", ["getTutorials"])
   },
   created() {
-    this.getTutorials()
+    this.getTutorials();
   },
-  mounted () {
-    window.scrollTo(0, 0)
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>
