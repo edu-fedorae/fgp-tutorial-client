@@ -2,39 +2,23 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import context from "./context";
-import reviews from "./reviews";
-import axios from "axios";
+import tutorials from "@/store/tutorials";
+import reviews from "@/store/reviews";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    tutorials: {}
-  },
+  state: {},
 
-  getters: {
-    allTutorials: state => state.tutorials
-  },
+  getters: {},
 
-  mutations: {
-    setTutorials(state, tutorials) {
-      state.tutorials = tutorials;
-    }
-  },
+  mutations: {},
 
-  actions: {
-    // Tutorials
-    getTutorials({ commit }) {
-      return axios.get("tutorial").then(res => {
-        const data = res;
-        commit("setTutorial", data);
-        console.log("Tutorials Received Successful.");
-      });
-    }
-  },
+  actions: {},
 
   modules: {
     context,
+    tutorials,
     reviews
   }
 });

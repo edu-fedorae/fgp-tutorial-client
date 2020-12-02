@@ -1,6 +1,4 @@
-﻿// import Vue from "vue";
-import axios from "axios";
-// import router from "@/router";
+﻿import axios from "axios";
 
 const store = {
   namespaced: true,
@@ -24,7 +22,7 @@ const store = {
     getReviews({ commit }) {
       return axios.get("review").then(res => {
         const data = res.data;
-        commit("setReview", data);
+        commit("setReviews", data);
         console.log("Reviews Received Successful.");
       });
     }

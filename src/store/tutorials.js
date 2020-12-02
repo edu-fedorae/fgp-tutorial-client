@@ -1,6 +1,4 @@
-﻿// import Vue from "vue";
-import axios from "axios";
-// import router from "@/router";
+﻿import axios from "axios";
 
 const store = {
   namespaced: true,
@@ -23,8 +21,8 @@ const store = {
     // Tutorials
     getTutorials({ commit }) {
       return axios.get("tutorial").then(res => {
-        const data = res;
-        commit("setTutorial", data);
+        const data = res.data;
+        commit("setTutorials", data);
         console.log("Tutorials Received Successful.");
       });
     }

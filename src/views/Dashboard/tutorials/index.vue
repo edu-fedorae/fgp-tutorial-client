@@ -155,7 +155,12 @@ export default {
   computed: {
     ...mapGetters({
       user: "context/user"
-    })
+    }),
+    computed: {
+      tutorials () {
+        return this.$store.getters["tutorials/allTutorials"]
+      }
+    },
   },
   methods: {
     customFilter(item, queryText) {
@@ -179,10 +184,6 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
-    axios.get("tutorial").then(res => {
-      this.tutorials = res.data;
-      console.log("Tutorials Received Successful.");
-    });
   }
 };
 </script>
