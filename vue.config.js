@@ -8,13 +8,13 @@ module.exports = {
   pwa: {
     name: "Tutorion",
     startUrl: "index.html",
-    themeColor: "#4DBA87",
+    themeColor: "#1E3D58",
     msTileColor: "#000000",
     appleMobileWebAppCapable: "yes",
     appleMobileWebAppStatusBarStyle: "black",
     manifestPath: "manifest.json",
     manifestOptions: {
-      background_color: "#42b983"
+      background_color: "#1E3D58"
     },
     workboxOptions: {
       // ...other Workbox options...
