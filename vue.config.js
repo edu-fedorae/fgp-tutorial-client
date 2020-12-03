@@ -12,8 +12,16 @@ module.exports = {
     msTileColor: "#000000",
     appleMobileWebAppCapable: "yes",
     appleMobileWebAppStatusBarStyle: "black",
+    manifestPath: "manifest.json",
+    workboxPluginMode: "InjectManifest",
     manifestOptions: {
       background_color: "#42b983"
     },
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: "service-worker.js",
+      // ...other Workbox options...
+      exclude: [/netlify.toml/],
+    }
   }
 };
