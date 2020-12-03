@@ -21,9 +21,9 @@ const store = {
     // Tutorials
     getTutorials({ commit }) {
       return axios.get("tutorial").then(res => {
-        const data = res.data;
+        const data = JSON.stringify(res.data);
         commit("setTutorials", data);
-        console.log("Tutorials Received Successful.");
+        console.log("Tutorials Received Successful.", data);
       });
     }
   }

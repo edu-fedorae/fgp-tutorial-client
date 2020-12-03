@@ -84,16 +84,18 @@
             height="200px"
           ></v-img>
 
+          <p>{{ tutorial }}</p>
+
           <v-card-title>
-            {{ tutorials[i].title }}
+<!--            {{ tutorials[i].title }}-->
           </v-card-title>
 
-          <v-card-subtitle> by {{ tutorials[i].userId }} </v-card-subtitle>
+          <v-card-subtitle> by  </v-card-subtitle>
 
           <v-card-actions>
             <v-btn
               color="orange lighten-2"
-              :to="{ path: `/dashboard/tutorials/${tutorials[i].id}` }"
+              :to="{ path: `/dashboard/tutorials/` }"
             >
               View
             </v-btn>
@@ -101,7 +103,7 @@
             <v-btn
               color="blue lighten-2"
               v-if="user.role == 1"
-              :to="{ path: `/dashboard/tutorials/${tutorials[i].id}/edit` }"
+              :to="{ path: `/dashboard/tutorials/edit` }"
             >
               Edit
             </v-btn>
@@ -120,7 +122,7 @@
               <v-divider></v-divider>
 
               <v-card-text>
-                {{ tutorial.description }}
+                description
               </v-card-text>
             </div>
           </v-expand-transition>
@@ -149,18 +151,13 @@ export default {
         startAt: "",
         endAt: ""
       },
-      tutorials: []
+      tutorials: this.$store.getters["tutorials/allTutorials"]
     };
   },
   computed: {
     ...mapGetters({
       user: "context/user"
-    }),
-    computed: {
-      tutorials () {
-        return this.$store.getters["tutorials/allTutorials"]
-      }
-    },
+    })
   },
   methods: {
     customFilter(item, queryText) {

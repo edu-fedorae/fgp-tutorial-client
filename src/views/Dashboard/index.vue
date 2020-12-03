@@ -122,7 +122,7 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
-    if (!localStorage.getItem("jwtToken")) {
+    if (!localStorage.getItem("jwtToken") || !this.user) {
       return router.push({ name: "Home" });
     } else {
       return router.push({ name: "Dashboard-Home"})
