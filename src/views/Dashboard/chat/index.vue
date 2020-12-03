@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="mx-auto" max-width="500">
+    <v-card class="mx-auto" width="100%">
       <v-list>
         <v-list-item-group v-model="model">
           <v-list-item v-for="(item, i) in items" :key="i">
