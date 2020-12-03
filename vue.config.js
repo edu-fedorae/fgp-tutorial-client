@@ -7,19 +7,16 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV !== "production",
   pwa: {
     name: "Tutorion",
-    startUrl: "./public/index.html",
+    startUrl: "index.html",
     themeColor: "#4DBA87",
     msTileColor: "#000000",
     appleMobileWebAppCapable: "yes",
     appleMobileWebAppStatusBarStyle: "black",
-    manifestPath: "./public/manifest.json",
-    workboxPluginMode: "InjectManifest",
+    manifestPath: "manifest.json",
     manifestOptions: {
       background_color: "#42b983"
     },
     workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      swSrc: "service-worker.js",
       // ...other Workbox options...
       exclude: [/netlify.toml/],
     }
