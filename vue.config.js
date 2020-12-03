@@ -12,7 +12,7 @@ module.exports = {
     msTileColor: "#000000",
     appleMobileWebAppCapable: "yes",
     appleMobileWebAppStatusBarStyle: "black",
-    manifestPath: "manifest.json",
+    manifestPath: "./public/manifest.json",
     workboxPluginMode: "InjectManifest",
     manifestOptions: {
       background_color: "#42b983"
