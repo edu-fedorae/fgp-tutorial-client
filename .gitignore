@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /dist
-public/netlify.toml
 
 # local env files
 .env.local

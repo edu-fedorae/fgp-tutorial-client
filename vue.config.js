@@ -7,6 +7,7 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV !== "production",
   pwa: {
     name: "Tutorion",
+    startUrl: "./public/index.html",
     themeColor: "#4DBA87",
     msTileColor: "#000000",
     appleMobileWebAppCapable: "yes",
