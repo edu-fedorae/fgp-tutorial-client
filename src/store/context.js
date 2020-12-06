@@ -6,12 +6,7 @@ const store = {
   namespaced: true,
 
   state: {
-    user: {
-      // name: "Jane Doe",
-      // email: "jane@tutorion.com",
-      // role: 1,
-      // password: "password"
-    },
+    user: {},
     jwtToken: null
   },
 

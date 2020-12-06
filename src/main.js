@@ -15,7 +15,8 @@ Vue.config.productionTip = false;
 // These lines setup axios so all requests are sent to the backend server
 // However, you can comment them and the site will behave as if both client and server were hosted in localhost:8080
 // due to the proxy dev server configured in vue.config.js
-axios.defaults.baseURL = "https://localhost:5001"; // same as the Url the server listens to
+// axios.defaults.baseURL = "https://localhost:5001"; // same as the Url the server listens to
+axios.defaults.baseURL = "https://api-tutorion.herokuapp.com"; // live backend server api
 axios.defaults.withCredentials = true;
 
 // Include the Authentication header when using JWT authentication

@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Error from "../views/Error.vue";
-import auth from "../middleware/auth.js";
 
 Vue.use(VueRouter);
 
@@ -30,9 +29,6 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import("../views/Dashboard/index.vue"),
-    meta: {
-      middleware: auth
-    },
 
     children: [
       {
