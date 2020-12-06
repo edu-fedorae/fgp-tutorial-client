@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       form: {
-        email: "tutor@tutorion.com",
+        email: "student@tutorion.com",
         password: "my-super-secret-password"
       },
       authMode: "jwt",
