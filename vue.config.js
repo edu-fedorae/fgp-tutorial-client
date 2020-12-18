@@ -1,10 +1,6 @@
 module.exports = {
   publicPath: "./",
   transpileDependencies: ["vuetify"],
-  devServer: {
-    // proxy: "https://localhost:5001"
-    proxy: "https://api-tutorion.herokuapp.com"
-  },
   lintOnSave: process.env.NODE_ENV !== "production",
   pwa: {
     name: "Tutorion",
@@ -24,9 +20,5 @@ module.exports = {
         maskIcon: 'img/icons/safari-pinned-tab.svg',
         msTileImage: 'img/icons/msapplication-icon-144x144.png'
     },
-    workboxOptions: {
-    // ...other Workbox options...
-    exclude: [/netlify.toml/],
-    }
   }
 };
