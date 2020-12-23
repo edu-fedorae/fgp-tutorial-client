@@ -1,77 +1,82 @@
 <template>
-  <v-container>
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="4">
-        <v-form @submit.prevent="onSubmit">
-          <v-card class="elevation-12">
-            <v-toolbar color="#1E3D58" dark flat>
-              <v-toolbar-title>Sign-In</v-toolbar-title>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-            <v-card-text>
-              <v-text-field
-                v-model="form.email"
-                label="Email"
-                name="email"
-                prepend-icon="mdi-email"
-                type="email"
-                required
-              ></v-text-field>
+  <div id="app">
+  <v-app id="inspire">
+    <v-app id="inspire">
+      <v-main>
+        <v-container
+          class="fill-height"
+          fluid
+        >
+          <v-row
+            align="center"
+            justify="center"
+          >
+            <v-col
+              cols="12"
+              sm="8"
+              md="4"
+            >
+              <v-card class="elevation-12">
+                <v-toolbar
+                  color="primary"
+                  dark
+                  flat
+                >
+                  <v-toolbar-title>Login form</v-toolbar-title>
+                  <v-spacer></v-spacer>
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on }">
+                      <v-btn
+                        :href="source"
+                        icon
+                        large
+                        target="_blank"
+                        v-on="on"
+                      >
+                        <v-icon>mdi-code-tags</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Source</span>
+                  </v-tooltip>
+                </v-toolbar>
+                <v-card-text>
+                  <v-form>
+                    <v-text-field
+                      label="Login"
+                      name="login"
+                      prepend-icon="mdi-account"
+                      type="text"
+                    ></v-text-field>
 
-              <v-text-field
-                v-model="form.password"
-                id="password"
-                label="Password"
-                name="password"
-                prepend-icon="mdi-lock"
-                type="password"
-                required
-              ></v-text-field>
-              <span class="caption grey--text text--darken-1">
-                Don't have an account?
-                <router-link :to="{ name: 'Register' }">Register</router-link>
-              </span>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="#1E3D58" style="color: #ffffff" type="submit"
-                >Login</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-form>
-      </v-col>
-    </v-row>
-  </v-container>
+                    <v-text-field
+                      id="password"
+                      label="Password"
+                      name="password"
+                      prepend-icon="mdi-lock"
+                      type="password"
+                    ></v-text-field>
+                  </v-form>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary">Login</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-main>
+    </v-app>
+  </v-app>
+</div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
 
 export default {
-  data() {
-    return {
-      form: {
-        email: "student@tutorion.com",
-        password: "my-super-secret-password"
-      },
-      authMode: "jwt",
-      authOptions: [
-        { text: "Cookie", value: "cookie" },
-        { text: "JWT Bearer", value: "jwt" }
-      ]
-    };
+  props: {
+    source: String,
   },
-  methods: {
-    ...mapActions("context", ["login"]),
-    onSubmit() {
-      this.login({ authMethod: this.authMode, credentials: this.form }).then(
-        () => {
-          console.log("Route to dashboard/home");
-        }
-      );
-    }
-  }
 };
 </script>
 

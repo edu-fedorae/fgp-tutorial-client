@@ -10,24 +10,11 @@
 import AppHeader from "@/components/core/AppHeader";
 import AppFooter from "@/components/core/AppFooter";
 
-import {mapActions} from "vuex";
-
 export default {
   name: "App",
   components: {
     AppHeader,
     AppFooter
   },
-  methods: {
-    ...mapActions("tutorials", ["getTutorials"]),
-    ...mapActions("reviews", ["getReviews"])
-  },
-  created() {
-    this.getTutorials();
-    this.getReviews();
-  },
-  mounted() {
-    window.scrollTo(0, 0);
-  }
 };
 </script>
