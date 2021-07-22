@@ -16,8 +16,5 @@ export default {
     AppHeader,
     AppFooter
   },
-  beforeCreate() {
-    window.location.href="https:///edu-fedorae.netlify.app"
-  }
 };
 </script>
